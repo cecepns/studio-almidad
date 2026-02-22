@@ -168,10 +168,112 @@ const Contact = () => {
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Left: Get In Touch */}
-              <div data-aos="fade-right" className="space-y-6">
+              {/* Kiri: Form Kirim Pesan */}
+              <div data-aos="fade-right">
+                <h2 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
+                  Kirim Pesan ke Kami
+                </h2>
+
+                <form
+                  onSubmit={handleSendViaWhatsApp}
+                  className="space-y-6"
+                >
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        Nama Lengkap *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Nama lengkap Anda"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="email@anda.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Subjek *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="input-field"
+                      placeholder="Tentang apa?"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Pesan *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={6}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="input-field resize-y"
+                      placeholder="Ceritakan lebih detail tentang pertanyaan Anda..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary-800 hover:bg-secondary-900"
+                  >
+                    <Send size={18} />
+                    <span>Kirim via WhatsApp</span>
+                  </button>
+
+                  <p className="text-sm text-gray-500">
+                    Pesan Anda akan dikirim via WhatsApp ke tim customer service
+                    kami.
+                  </p>
+                </form>
+              </div>
+
+              {/* Kanan: Hubungi Kami */}
+              <div data-aos="fade-left" className="space-y-6">
                 <h2 className="text-2xl lg:text-3xl font-bold text-secondary-900">
-                  Get In Touch
+                  Hubungi Kami
                 </h2>
 
                 {/* Phone */}
@@ -190,14 +292,14 @@ const Contact = () => {
                         {settings.company_phone}
                       </a>
                       <p className="text-sm text-primary-600 mt-0.5">
-                        Click to chat on WhatsApp
+                        Klik untuk chat di WhatsApp
                       </p>
                     </div>
                   </div>
                 )}
 
                 {/* Email */}
-                <div className="flex items-start gap-4">
+                <div className="flex items-center gap-4">
                   <div className="bg-primary-100 p-3 rounded-full flex-shrink-0">
                     <Mail className="text-primary-600" size={20} />
                   </div>
@@ -211,14 +313,14 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Workshop/Store Address */}
+                {/* Alamat Workshop/Toko */}
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-full flex-shrink-0">
                     <MapPin className="text-primary-600" size={20} />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-700 mb-1">
-                      Workshop and Store Address
+                      Alamat
                     </p>
                     <p className="text-gray-600 text-sm whitespace-pre-line">
                       {addressLines.length > 0
@@ -228,7 +330,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Warehouse Address */}
+                {/* Alamat Gudang */}
                 {warehouseLines.length > 0 && (
                   <div className="flex items-start gap-4">
                     <div className="bg-primary-100 p-3 rounded-full flex-shrink-0">
@@ -236,7 +338,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-700 mb-1">
-                        Warehouse Address
+                        Alamat
                       </p>
                       <p className="text-gray-600 text-sm whitespace-pre-line">
                         {warehouseLines.join('\n')}
@@ -245,14 +347,14 @@ const Contact = () => {
                   </div>
                 )}
 
-                {/* Business Hours */}
+                {/* Jam Kerja */}
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-full flex-shrink-0">
                     <Clock className="text-primary-600" size={20} />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-700 mb-1">
-                      Business Hours
+                      Jam Kerja
                     </p>
                     <ul className="text-gray-600 text-sm space-y-0.5">
                       {workingHoursLines.map((line, idx) => (
@@ -264,7 +366,7 @@ const Contact = () => {
 
                 {/* Instagram */}
                 {(settings.instagram_username || settings.instagram_url) && (
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="bg-primary-100 p-3 rounded-full flex-shrink-0">
                       <Instagram className="text-primary-600" size={20} />
                     </div>
@@ -275,7 +377,7 @@ const Contact = () => {
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-primary-600 transition-colors inline-flex items-center gap-2"
                       >
-                        <span className="font-medium">Follow Us</span>
+                        <span className="font-medium">Ikuti Kami</span>
                         {instagramDisplay && (
                           <span className="text-primary-600">
                             {instagramDisplay}
@@ -285,108 +387,6 @@ const Contact = () => {
                     </div>
                   </div>
                 )}
-              </div>
-
-              {/* Right: Send us a Message */}
-              <div data-aos="fade-left">
-                <h2 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
-                  Send us a Message
-                </h2>
-
-                <form
-                  onSubmit={handleSendViaWhatsApp}
-                  className="space-y-6"
-                >
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="input-field"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
-                      >
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="input-field"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="input-field"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="input-field resize-y"
-                      placeholder="Tell us more about your inquiry..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary-800 hover:bg-secondary-900"
-                  >
-                    <Send size={18} />
-                    <span>Send via WhatsApp</span>
-                  </button>
-
-                  <p className="text-sm text-gray-500">
-                    Your message will be sent via WhatsApp to our customer
-                    service team.
-                  </p>
-                </form>
               </div>
             </div>
           )}
@@ -402,7 +402,7 @@ const Contact = () => {
           >
             {settings.contact_location_title || (
               <>
-                Find <span className="text-primary-600">Us</span>
+                Temukan <span className="text-primary-600">Kami</span>
               </>
             )}
           </h2>
