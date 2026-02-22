@@ -54,7 +54,7 @@ const AdminLayout = () => {
 
       {/* Sidebar */}
       <div className={`
-        fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0
+        fixed inset-y-0 left-0 z-50 w-64 bg-ivory shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         
       `}>
@@ -122,7 +122,7 @@ const AdminLayout = () => {
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Top header */}
-        <div className="bg-white shadow-sm border-b border-gray-200">
+        <div className="bg-ivory shadow-sm border-b border-gray-200">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="flex items-center space-x-4">
               <button

@@ -88,7 +88,7 @@ const ServiceDetail = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Service Image */}
-              <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8" data-aos="fade-up">
+              <div className="bg-ivory rounded-lg shadow-md overflow-hidden mb-8" data-aos="fade-up">
                 <div className="relative h-96 bg-gray-200">
                   {service.image ? (
                     <img
@@ -115,7 +115,7 @@ const ServiceDetail = () => {
               </div>
 
               {/* Service Info */}
-              <div className="bg-white rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
+              <div className="bg-ivory rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
                 <h1 className="text-3xl font-bold text-gray-900 mb-4">{service.name}</h1>
                 
                 <div className="flex items-center justify-between mb-6">
@@ -177,7 +177,7 @@ const ServiceDetail = () => {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Contact Form */}
-              <div className="bg-white rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
+              <div className="bg-ivory rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Hubungi Kami</h3>
                 <p className="text-gray-600 mb-6">
                   Konsultasikan kebutuhan proyek Anda dengan tim profesional kami.
@@ -221,7 +221,7 @@ const ServiceDetail = () => {
 
               {/* Service Categories */}
               {service.category && (
-                <div className="bg-white rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
+                <div className="bg-ivory rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Kategori Layanan</h3>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
@@ -238,7 +238,7 @@ const ServiceDetail = () => {
 
               {/* Related Services */}
               {relatedServices.length > 0 && (
-                <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Layanan Terkait</h3>
                   <div className="space-y-4">
                     {relatedServices.map((relatedService) => (

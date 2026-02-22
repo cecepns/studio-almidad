@@ -205,7 +205,7 @@ const Banners = () => {
           banners.map((banner, index) => (
             <div 
               key={banner.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+              className="bg-ivory rounded-lg shadow-md overflow-hidden"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -219,7 +219,7 @@ const Banners = () => {
                   <button
                     onClick={() => moveUp(banner, index)}
                     disabled={index === 0}
-                    className="p-1 bg-white rounded-full shadow-md hover:bg-gray-50 disabled:opacity-50"
+                    className="p-1 bg-ivory rounded-full shadow-md hover:bg-gray-50 disabled:opacity-50"
                     title="Move Up"
                   >
                     <MoveUp size={16} />
@@ -227,7 +227,7 @@ const Banners = () => {
                   <button
                     onClick={() => moveDown(banner, index)}
                     disabled={index === banners.length - 1}
-                    className="p-1 bg-white rounded-full shadow-md hover:bg-gray-50 disabled:opacity-50"
+                    className="p-1 bg-ivory rounded-full shadow-md hover:bg-gray-50 disabled:opacity-50"
                     title="Move Down"
                   >
                     <MoveDown size={16} />
@@ -273,7 +273,7 @@ const Banners = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-ivory rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-gray-200">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-semibold text-gray-900">

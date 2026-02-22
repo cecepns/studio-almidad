@@ -306,7 +306,7 @@ const Products = () => {
       </div>
 
       {/* Search */}
-      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
         <form onSubmit={handleSearch} className="flex space-x-4">
           <div className="flex-grow relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -325,7 +325,7 @@ const Products = () => {
       </div>
 
       {/* Products Table */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>
@@ -350,7 +350,7 @@ const Products = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-ivory divide-y divide-gray-200">
                   {products.map((product) => (
                     <tr key={product.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
@@ -439,7 +439,7 @@ const Products = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-ivory rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-gray-200">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-semibold text-gray-900">
@@ -551,7 +551,7 @@ const Products = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Description *
                 </label>
-                <div className="bg-white">
+                <div className="bg-ivory">
                   <ReactQuill
                     ref={quillRef}
                     theme="snow"

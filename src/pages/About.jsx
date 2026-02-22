@@ -155,7 +155,7 @@ const About = () => {
       </section>
 
       {/* Company Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-ivory">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
@@ -232,7 +232,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-ivory">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2

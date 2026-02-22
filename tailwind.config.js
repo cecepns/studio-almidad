@@ -20,6 +20,8 @@ export default {
           800: '#8B6914',
           900: '#6B5012',
         },
+        // Ivory: putih gading
+        ivory: '#FFFFF0',
         // Secondary: dark accent for contrast
         secondary: {
           50:  '#f9fafb',

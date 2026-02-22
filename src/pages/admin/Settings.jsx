@@ -148,7 +148,7 @@ const Settings = () => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Company Information */}
-        <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+        <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
           <div className="flex items-center mb-6">
             <Building className="text-primary-600 mr-3" size={24} />
             <h2 className="text-lg font-semibold text-gray-900">Company Information</h2>
@@ -250,7 +250,7 @@ const Settings = () => {
         </div>
 
         {/* About Company */}
-        <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+        <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
           <div className="flex items-center mb-6">
             <Info className="text-primary-600 mr-3" size={24} />
             <h2 className="text-lg font-semibold text-gray-900">About Company</h2>
@@ -329,7 +329,7 @@ const Settings = () => {
         </div>
 
       {/* Home About Section */}
-      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
         <div className="flex items-center mb-6">
           <ImageIcon className="text-primary-600 mr-3" size={24} />
           <h2 className="text-lg font-semibold text-gray-900">Home About Section</h2>
@@ -404,7 +404,7 @@ const Settings = () => {
       </div>
 
       {/* Page Section Titles & Subtitles */}
-      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
         <div className="flex items-center mb-6">
           <Type className="text-primary-600 mr-3" size={24} />
           <h2 className="text-lg font-semibold text-gray-900">Judul & Subjudul Halaman</h2>
@@ -488,7 +488,7 @@ const Settings = () => {
       </div>
 
       {/* Vision & Mission */}
-      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
         <div className="flex items-center mb-6">
           <Target className="text-primary-600 mr-3" size={24} />
           <h2 className="text-lg font-semibold text-gray-900">Vision & Mission</h2>
@@ -534,7 +534,7 @@ const Settings = () => {
       </div>
 
       {/* Marketing & Tracking */}
-      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
         <div className="flex items-center mb-6">
           <Target className="text-primary-600 mr-3" size={24} />
           <h2 className="text-lg font-semibold text-gray-900">Marketing & Tracking</h2>
@@ -561,7 +561,7 @@ const Settings = () => {
       </div>
 
         {/* Maps Integration */}
-        <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+        <div className="bg-ivory rounded-lg shadow-md p-6" data-aos="fade-up">
           <div className="flex items-center mb-6">
             <Globe className="text-primary-600 mr-3" size={24} />
             <h2 className="text-lg font-semibold text-gray-900">Maps Integration</h2>

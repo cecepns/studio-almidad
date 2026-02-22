@@ -334,7 +334,7 @@ const GoogleTranslate = ({ closeOnComplete = true, onComplete, variant = "defaul
 
         {isOpen && (
           <div
-            className="absolute md:right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 notranslate"
+            className="absolute md:right-0 mt-2 w-48 bg-ivory rounded-md shadow-lg z-50 border border-gray-200 notranslate"
             translate="no"
           >
             <div className="py-1">

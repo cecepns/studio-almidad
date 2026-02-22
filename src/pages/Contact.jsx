@@ -153,7 +153,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-ivory">
         <div className="container mx-auto px-4">
           {loading ? (
             <div className="flex justify-center items-center py-20">
@@ -353,7 +353,7 @@ const Contact = () => {
               </div>
 
               <div className="mt-6 space-y-4">
-                <div className="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div className="flex items-start space-x-3 p-4 bg-ivory rounded-lg border border-gray-100">
                   <MapPin className="text-primary-600 mt-1 flex-shrink-0" size={20} />
                   <div>
                     <p className="font-medium text-secondary-900">Alamat Lengkap</p>

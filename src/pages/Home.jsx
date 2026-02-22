@@ -202,7 +202,7 @@ const Home = () => {
                   </Link>
                   <Link
                     to="/contact"
-                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-secondary-900 inline-flex items-center justify-center px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
+                    className="bg-transparent border-2 border-white text-white hover:bg-ivory hover:text-secondary-900 inline-flex items-center justify-center px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
                   >
                     Hubungi Kami
                   </Link>
@@ -215,7 +215,7 @@ const Home = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-ivory">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2
@@ -282,7 +282,7 @@ const Home = () => {
               {featuredProducts.map((product, index) => (
                 <div
                   key={product.id}
-                  className="card hover:shadow-xl transition-all duration-300 overflow-hidden group bg-white"
+                  className="card hover:shadow-xl transition-all duration-300 overflow-hidden group bg-ivory"
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
@@ -336,7 +336,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-[#FFFFF0]">
+      <section className="py-20 bg-ivory">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
@@ -402,7 +402,7 @@ const Home = () => {
             </Link>
             <Link
               to="/services"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-secondary-900 inline-flex items-center justify-center px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
+              className="bg-transparent border-2 border-white text-white hover:bg-ivory hover:text-secondary-900 inline-flex items-center justify-center px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
             >
               Lihat Katalog
             </Link>

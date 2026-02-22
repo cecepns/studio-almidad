@@ -138,7 +138,7 @@ const Services = () => {
           </div>
 
           {/* Search and Filters */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
+          <div className="bg-ivory rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
             <form onSubmit={handleSearch} className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1 relative">
@@ -235,7 +235,7 @@ const Services = () => {
                 {services.map((service) => (
                   <div
                     key={service.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                    className="bg-ivory rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                     data-aos="fade-up"
                   >
                     <div className="relative h-48 bg-gray-200">

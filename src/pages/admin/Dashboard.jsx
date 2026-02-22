@@ -95,7 +95,7 @@ const Dashboard = () => {
         {statCards.map((stat, index) => (
           <div 
             key={index}
-            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+            className="bg-ivory rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
@@ -121,7 +121,7 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Products */}
-      <div className="bg-white rounded-lg shadow-md" data-aos="fade-up">
+      <div className="bg-ivory rounded-lg shadow-md" data-aos="fade-up">
         <div className="p-6 border-b border-gray-200">
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-semibold text-gray-900">Recent Products</h2>
@@ -168,7 +168,7 @@ const Dashboard = () => {
       <div className="grid md:grid-cols-3 gap-6" data-aos="fade-up">
         <Link 
           to="/admin/products"
-          className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
+          className="bg-ivory rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
         >
           <Package className="mx-auto text-primary-600 mb-4" size={48} />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Manage Products</h3>
@@ -177,7 +177,7 @@ const Dashboard = () => {
 
         <Link 
           to="/admin/banners"
-          className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
+          className="bg-ivory rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
         >
           <ImageIcon className="mx-auto text-green-600 mb-4" size={48} />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Manage Banners</h3>
@@ -186,7 +186,7 @@ const Dashboard = () => {
 
         <Link 
           to="/admin/settings"
-          className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
+          className="bg-ivory rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center"
         >
           <Users className="mx-auto text-purple-600 mb-4" size={48} />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Settings</h3>
