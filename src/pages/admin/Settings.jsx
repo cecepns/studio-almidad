@@ -166,7 +166,7 @@ const Settings = () => {
                 value={settings.company_name || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Penyedia Jasa WiFi"
+                placeholder="Studio Almidad"
               />
             </div>
 
@@ -183,7 +183,7 @@ const Settings = () => {
                   value={settings.company_email || ''}
                   onChange={handleInputChange}
                   className="input-field pl-10"
-                  placeholder="info@penyediajasawifi.id"
+                  placeholder="info@studioalmidad.com"
                 />
               </div>
             </div>
@@ -219,7 +219,7 @@ const Settings = () => {
                   value={settings.company_address || ''}
                   onChange={handleInputChange}
                   className="input-field pl-10 resize-none"
-                  placeholder="BSB City, Ruko Jade Square, Blk. A No.12B, Kota Semarang, 50212"
+                  placeholder="Jl. Contoh No. 123, Kota Anda, 12345"
                 />
               </div>
               <p className="text-sm text-gray-500 mt-2">
@@ -317,9 +317,9 @@ const Settings = () => {
             onChange={handleInputChange}
             className="input-field resize-none"
             placeholder={
-              "Penyedia Jasa WiFi BSB City hadir untuk menjawab kebutuhan koneksi internet yang stabil, cepat, dan terjangkau di kawasan hunian dan komersial BSB City, Kota Semarang.\n\n" +
-              "Berawal dari layanan jaringan di lingkungan sekitar, kami terus mengembangkan infrastruktur dan tim teknis agar setiap pelanggan mendapatkan pengalaman online yang nyaman dan andal.\n\n" +
-              "Dengan lokasi operasional di BSB City, Ruko Jade Square, Blk. A No.12B, kami berkomitmen memberikan layanan yang dekat, responsif, dan mudah dijangkau."
+              "Studio Almidad berdiri dengan visi menghadirkan Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda.\n\n" +
+              "Berawal dari kecintaan akan seni islami dan keinginan menghadirkan suvenir, artwork, serta apparel bermakna, kami terus mengembangkan kualitas produk dan layanan agar setiap pelanggan mendapatkan pengalaman berbelanja yang memuaskan.\n\n" +
+              "Dengan fokus pada kualitas, ketelitian, dan makna di balik setiap produk, kami berkomitmen menjadi mitra terpercaya untuk Custom Islamic Art & Meaningful Gifts Anda."
             }
           />
           <p className="text-sm text-gray-500 mt-2">
@@ -347,7 +347,7 @@ const Settings = () => {
                 value={settings.home_about_title || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Penyedia Jasa WiFi"
+                placeholder="Studio Almidad"
               />
             </div>
 
@@ -361,7 +361,7 @@ const Settings = () => {
                 value={settings.home_about_description || ''}
                 onChange={handleInputChange}
                 className="input-field resize-none"
-                placeholder="Layanan pemasangan dan pengelolaan jaringan internet serta WiFi untuk rumah, kost, ruko, dan bisnis di Kawasan Anda. Mengutamakan koneksi stabil, support teknis responsif, dan paket yang fleksibel."
+                placeholder="Custom Islamic Art & Meaningful Gifts. Suvenir, Artwork, dan Apparel bermakna untuk kebutuhan pribadi, acara, dan bisnis. Mengutamakan kualitas, ketelitian, dan layanan yang responsif."
               />
               <p className="text-sm text-gray-500 mt-2">
                 This text will replace the default description on the Home page About section.
@@ -506,8 +506,8 @@ const Settings = () => {
               onChange={handleInputChange}
               className="input-field resize-none"
               placeholder={
-                "Menjadi penyedia layanan internet terpercaya di BSB City dan Kota Semarang dengan jaringan yang stabil, cepat, dan mudah diakses.\n\n" +
-                "Hadir sebagai mitra digital yang membantu aktivitas kerja, belajar, hiburan, dan operasional bisnis berjalan tanpa gangguan."
+                "Menjadi studio Custom Islamic Art & Meaningful Gifts terpercaya yang menghadirkan suvenir, artwork, dan apparel bermakna untuk setiap kebutuhan pelanggan.\n\n" +
+                "Hadir sebagai mitra yang membantu mewujudkan produk bermakna untuk acara, hadiah, dekorasi, dan kebutuhan sehari-hari dengan kualitas terbaik."
               }
             />
           </div>
@@ -523,10 +523,10 @@ const Settings = () => {
               onChange={handleInputChange}
               className="input-field resize-none"
               placeholder={
-                "- Menyediakan koneksi internet yang stabil dan berkualitas dengan berbagai pilihan paket sesuai kebutuhan pelanggan.\n" +
-                "- Memberikan dukungan teknis yang responsif dan mudah dihubungi ketika terjadi kendala.\n" +
-                "- Melakukan survei dan instalasi secara profesional dengan memperhatikan kerapian dan keamanan jaringan.\n" +
-                "- Terus meningkatkan infrastruktur jaringan dan teknologi untuk menjaga performa koneksi di area layanan."
+                "- Menyediakan produk Custom Islamic Art & Meaningful Gifts berkualitas dengan berbagai pilihan suvenir, artwork, dan apparel sesuai kebutuhan pelanggan.\n" +
+                "- Memberikan layanan konsultasi dan pemesanan custom yang responsif dan mudah dihubungi.\n" +
+                "- Memastikan proses produksi berkualitas dengan ketelitian dan bahan pilihan terbaik.\n" +
+                "- Terus berinovasi dalam desain dan produk untuk memenuhi kebutuhan pelanggan akan produk bermakna."
               }
             />
           </div>
@@ -580,7 +580,7 @@ const Settings = () => {
               placeholder="https://www.google.com/maps/embed?pb=..."
             />
             <p className="text-sm text-gray-500 mt-2">
-              Get the embed URL from Google Maps by clicking "Share" → "Embed a map" → Copy the src URL from the iframe code.
+              Get the embed URL from Google Maps by clicking &quot;Share&quot; → &quot;Embed a map&quot; → Copy the src URL from the iframe code.
             </p>
           </div>
 

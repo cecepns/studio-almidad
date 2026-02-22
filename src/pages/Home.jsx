@@ -336,7 +336,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#FFFFF0]">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
@@ -373,7 +373,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary-900 text-white">
+      <section className="py-20 bg-[#0d1b2a] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2
             className="text-2xl lg:text-4xl font-bold mb-6"
@@ -395,7 +395,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-primary-500 hover:bg-primary-600 text-secondary-900 inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
+              className="bg-[#D4AF37] hover:bg-[#C5A028] text-secondary-900 inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
             >
               <span>Hubungi Kami</span>
               <ArrowRight size={20} />
