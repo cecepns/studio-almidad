@@ -24,7 +24,9 @@ const Contact = () => {
     company_phone: '',
     company_email: '',
     company_working_hours: '',
-    google_maps_embed: ''
+    google_maps_embed: '',
+    contact_location_title: '',
+    contact_location_description: ''
   });
   const [loading, setLoading] = useState(true);
 
@@ -43,7 +45,9 @@ const Contact = () => {
         company_phone: settingsData.company_phone || '',
         company_email: settingsData.company_email || 'info@studioalmidad.com',
         company_working_hours: settingsData.company_working_hours || 'Senin - Jumat: 08:00 - 17:00\nSabtu: 08:00 - 12:00\nMinggu: Tutup',
-        google_maps_embed: settingsData.google_maps_embed || ''
+        google_maps_embed: settingsData.google_maps_embed || '',
+        contact_location_title: settingsData.contact_location_title || '',
+        contact_location_description: settingsData.contact_location_description || ''
       });
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -325,12 +329,16 @@ const Contact = () => {
             {/* Map & Address */}
             <div data-aos="fade-left">
               <h2 className="text-2xl lg:text-3xl font-bold text-secondary-900 mb-6">
-                Lokasi <span className="text-primary-600">Kami</span>
+                {settings.contact_location_title || (
+                  <>Lokasi <span className="text-primary-600">Kami</span></>
+                )}
               </h2>
               <p className="text-gray-600 mb-6">
-                {settings.company_address
-                  ? `Kunjungi studio kami di Jl. Wolter Monginsidi Gg. VII No. 17, Kranjingan, Sumbersari, Jember. Kami siap melayani Anda.`
-                  : 'Kunjungi studio kami. Kami siap melayani pesanan custom Anda.'}
+                {settings.contact_location_description || (
+                  settings.company_address
+                    ? `Kunjungi studio kami di Jl. Wolter Monginsidi Gg. VII No. 17, Kranjingan, Sumbersari, Jember. Kami siap melayani Anda.`
+                    : 'Kunjungi studio kami. Kami siap melayani pesanan custom Anda.'
+                )}
               </p>
 
               <div className="bg-gray-200 rounded-lg h-80 lg:h-96 relative overflow-hidden">

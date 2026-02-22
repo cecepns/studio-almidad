@@ -32,7 +32,9 @@ const Settings = () => {
     about_values_subtitle: '',
     about_history_title: '',
     services_hero_title: '',
-    services_hero_subtitle: ''
+    services_hero_subtitle: '',
+    contact_location_title: '',
+    contact_location_description: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -472,7 +474,7 @@ const Settings = () => {
         </div>
 
         {/* Services Page */}
-        <div className="space-y-6">
+        <div className="space-y-6 mb-8">
           <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Katalog</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
@@ -482,6 +484,21 @@ const Settings = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Subjudul Halaman</label>
               <input type="text" name="services_hero_subtitle" value={settings.services_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas." />
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Page */}
+        <div className="space-y-6">
+          <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Kontak</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi - Judul</label>
+              <input type="text" name="contact_location_title" value={settings.contact_location_title || ''} onChange={handleInputChange} className="input-field" placeholder="Lokasi Kami" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi - Deskripsi</label>
+              <textarea name="contact_location_description" rows={3} value={settings.contact_location_description || ''} onChange={handleInputChange} className="input-field resize-none" placeholder="Kunjungi studio kami. Kami siap melayani pesanan custom Anda." />
             </div>
           </div>
         </div>
