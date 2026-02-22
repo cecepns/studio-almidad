@@ -31,6 +31,7 @@ const Settings = () => {
     about_values_title: '',
     about_values_subtitle: '',
     about_history_title: '',
+    about_history_card_title: '',
     services_hero_title: '',
     services_hero_subtitle: '',
     contact_location_title: '',
@@ -469,6 +470,10 @@ const Settings = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Cerita Kami - Judul</label>
               <input type="text" name="about_history_title" value={settings.about_history_title || ''} onChange={handleInputChange} className="input-field" placeholder="Cerita Kami" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Judul Card Cerita Kami (di dalam card)</label>
+              <input type="text" name="about_history_card_title" value={settings.about_history_card_title || ''} onChange={handleInputChange} className="input-field" placeholder="Studio Almidad" />
             </div>
           </div>
         </div>

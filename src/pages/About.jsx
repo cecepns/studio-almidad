@@ -26,6 +26,7 @@ const About = () => {
     about_values_title: '',
     about_values_subtitle: '',
     about_history_title: '',
+    about_history_card_title: '',
   });
   const [loading, setLoading] = useState(true);
 
@@ -50,6 +51,7 @@ const About = () => {
         about_values_title: settingsData.about_values_title || '',
         about_values_subtitle: settingsData.about_values_subtitle || '',
         about_history_title: settingsData.about_history_title || '',
+        about_history_card_title: settingsData.about_history_card_title || '',
       });
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -290,7 +292,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="card p-8" data-aos="fade-up">
               <h3 className="text-2xl font-bold text-secondary-900 mb-6">
-                Studio Almidad
+                {settings.about_history_card_title || settings.company_name || 'Studio Almidad'}
               </h3>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-4">
                 {formatCompanyAbout(settings.company_history || defaultCompanyHistory)}
