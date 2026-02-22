@@ -77,7 +77,8 @@ const Home = () => {
       />
 
       {/* Hero Banner Section */}
-      <section className="relative h-44 lg:h-[500px] overflow-hidden bg-white">
+      <section className="relative px-4 py-4 lg:px-6 lg:py-6 bg-gray-50">
+        <div className="container mx-auto h-44 lg:h-[500px] rounded-2xl overflow-hidden shadow-sm border border-slate-200">
         {loading ? (
           <div className="w-full h-full bg-primary-100 flex items-center justify-center">
             <div className="text-secondary-800 text-xl">Memuat banner...</div>
@@ -112,7 +113,7 @@ const Home = () => {
                       "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg"
                     }
                     alt={banner.title || "Banner"}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 flex items-center">
                     <div className="container mx-auto px-4">
@@ -160,7 +161,7 @@ const Home = () => {
             ))}
           </Swiper>
         ) : (
-          <div className="relative bg-secondary-900 text-white overflow-hidden h-full">
+          <div className="relative bg-secondary-900 text-white overflow-hidden h-full rounded-2xl">
             <div className="absolute inset-0 opacity-90">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent"></div>
             </div>
@@ -210,6 +211,7 @@ const Home = () => {
             </div>
           </div>
         )}
+        </div>
       </section>
 
       {/* Categories Section */}
@@ -220,14 +222,16 @@ const Home = () => {
               className="text-2xl lg:text-4xl font-bold text-secondary-900 mb-4"
               data-aos="fade-up"
             >
-              Apa yang Kami <span className="text-primary-600">Tawarkan</span>
+              {settings.home_categories_title || (
+                <>Apa yang Kami <span className="text-primary-600">Tawarkan</span></>
+              )}
             </h2>
             <p
               className="text-lg text-gray-600 max-w-2xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda
+              {settings.home_categories_subtitle || 'Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda'}
             </p>
           </div>
 
@@ -260,14 +264,16 @@ const Home = () => {
               className="text-2xl lg:text-4xl font-bold text-secondary-900 mb-4"
               data-aos="fade-up"
             >
-              Produk <span className="text-primary-600">Unggulan</span>
+              {settings.home_products_title || (
+                <>Produk <span className="text-primary-600">Unggulan</span></>
+              )}
             </h2>
             <p
               className="text-xl text-gray-600 max-w-3xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Temukan berbagai produk Suvenir, Artwork, dan Apparel berkualitas dengan desain Islami yang penuh makna.
+              {settings.home_products_subtitle || 'Temukan berbagai produk Suvenir, Artwork, dan Apparel berkualitas dengan desain Islami yang penuh makna.'}
             </p>
           </div>
 
@@ -373,14 +379,14 @@ const Home = () => {
             className="text-2xl lg:text-4xl font-bold mb-6"
             data-aos="fade-up"
           >
-            Ingin Pesan Custom?
+            {settings.home_cta_title || 'Ingin Pesan Custom?'}
           </h2>
           <p
             className="text-xl mb-8 max-w-2xl mx-auto text-gray-300"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Almidad.
+            {settings.home_cta_subtitle || 'Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Almidad.'}
           </p>
           <div
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"

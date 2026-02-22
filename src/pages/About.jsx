@@ -21,6 +21,11 @@ const About = () => {
     company_vision: '',
     company_mission: '',
     about_page_image: '',
+    about_hero_title: '',
+    about_hero_subtitle: '',
+    about_values_title: '',
+    about_values_subtitle: '',
+    about_history_title: '',
   });
   const [loading, setLoading] = useState(true);
 
@@ -40,6 +45,11 @@ const About = () => {
         company_vision: settingsData.company_vision || '',
         company_mission: settingsData.company_mission || '',
         about_page_image: settingsData.about_page_image || '',
+        about_hero_title: settingsData.about_hero_title || '',
+        about_hero_subtitle: settingsData.about_hero_subtitle || '',
+        about_values_title: settingsData.about_values_title || '',
+        about_values_subtitle: settingsData.about_values_subtitle || '',
+        about_history_title: settingsData.about_history_title || '',
       });
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -129,14 +139,16 @@ const About = () => {
               className="text-2xl lg:text-6xl font-bold mb-6"
               data-aos="fade-up"
             >
-              Tentang <span className="text-primary-400">Studio Almidad</span>
+              {settings.about_hero_title || (
+                <>Tentang <span className="text-primary-400">Studio Almidad</span></>
+              )}
             </h1>
             <p
               className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas dan penuh makna.
+              {settings.about_hero_subtitle || 'Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas dan penuh makna.'}
             </p>
           </div>
         </div>
@@ -227,14 +239,16 @@ const About = () => {
               className="text-2xl lg:text-4xl font-bold text-secondary-900 mb-4"
               data-aos="fade-up"
             >
-              Nilai-Nilai <span className="text-primary-600">Kami</span>
+              {settings.about_values_title || (
+                <>Nilai-Nilai <span className="text-primary-600">Kami</span></>
+              )}
             </h2>
             <p
               className="text-xl text-gray-600 max-w-3xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Nilai-nilai fundamental yang menjadi fondasi dalam setiap karya dan layanan kami.
+              {settings.about_values_subtitle || 'Nilai-nilai fundamental yang menjadi fondasi dalam setiap karya dan layanan kami.'}
             </p>
           </div>
 
@@ -267,7 +281,9 @@ const About = () => {
               className="text-2xl lg:text-4xl font-bold text-secondary-900 mb-4"
               data-aos="fade-up"
             >
-              Cerita <span className="text-primary-600">Kami</span>
+              {settings.about_history_title || (
+                <>Cerita <span className="text-primary-600">Kami</span></>
+              )}
             </h2>
           </div>
 

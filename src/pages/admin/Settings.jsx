@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
-import { Save, Building, MapPin, Phone, Mail, Globe, Info, Clock, Target, Image as ImageIcon } from 'lucide-react';
+import { Save, Building, MapPin, Phone, Mail, Globe, Info, Clock, Target, Image as ImageIcon, Type } from 'lucide-react';
 import { settingsAPI, uploadAPI, getImageUrl } from '../../utils/api';
 
 const Settings = () => {
@@ -19,7 +19,20 @@ const Settings = () => {
     company_vision: '',
     company_mission: '',
     about_page_image: '',
-    facebook_pixel_id: ''
+    facebook_pixel_id: '',
+    home_categories_title: '',
+    home_categories_subtitle: '',
+    home_products_title: '',
+    home_products_subtitle: '',
+    home_cta_title: '',
+    home_cta_subtitle: '',
+    about_hero_title: '',
+    about_hero_subtitle: '',
+    about_values_title: '',
+    about_values_subtitle: '',
+    about_history_title: '',
+    services_hero_title: '',
+    services_hero_subtitle: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -386,6 +399,90 @@ const Settings = () => {
             <p className="text-sm text-gray-500">
               When you upload a new image, the previous one will be removed from the server automatically.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Page Section Titles & Subtitles */}
+      <div className="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+        <div className="flex items-center mb-6">
+          <Type className="text-primary-600 mr-3" size={24} />
+          <h2 className="text-lg font-semibold text-gray-900">Judul & Subjudul Halaman</h2>
+        </div>
+        <p className="text-sm text-gray-600 mb-6">
+          Edit judul dan subjudul section di setiap halaman. Kosongkan untuk menggunakan teks default.
+        </p>
+
+        {/* Home Page */}
+        <div className="space-y-6 mb-8">
+          <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Beranda</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Kategori (Apa yang Kami Tawarkan) - Judul</label>
+              <input type="text" name="home_categories_title" value={settings.home_categories_title || ''} onChange={handleInputChange} className="input-field" placeholder="Apa yang Kami Tawarkan" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Kategori - Subjudul</label>
+              <input type="text" name="home_categories_subtitle" value={settings.home_categories_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Produk Unggulan - Judul</label>
+              <input type="text" name="home_products_title" value={settings.home_products_title || ''} onChange={handleInputChange} className="input-field" placeholder="Produk Unggulan" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Produk Unggulan - Subjudul</label>
+              <input type="text" name="home_products_subtitle" value={settings.home_products_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Temukan berbagai produk Suvenir, Artwork, dan Apparel berkualitas..." />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section CTA (Ingin Pesan Custom) - Judul</label>
+              <input type="text" name="home_cta_title" value={settings.home_cta_title || ''} onChange={handleInputChange} className="input-field" placeholder="Ingin Pesan Custom?" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section CTA - Subjudul</label>
+              <input type="text" name="home_cta_subtitle" value={settings.home_cta_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Almidad." />
+            </div>
+          </div>
+        </div>
+
+        {/* About Page */}
+        <div className="space-y-6 mb-8">
+          <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Tentang Kami</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Judul</label>
+              <input type="text" name="about_hero_title" value={settings.about_hero_title || ''} onChange={handleInputChange} className="input-field" placeholder="Tentang Studio Almidad" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Subjudul</label>
+              <input type="text" name="about_hero_subtitle" value={settings.about_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel..." />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Nilai-Nilai - Judul</label>
+              <input type="text" name="about_values_title" value={settings.about_values_title || ''} onChange={handleInputChange} className="input-field" placeholder="Nilai-Nilai Kami" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Nilai-Nilai - Subjudul</label>
+              <input type="text" name="about_values_subtitle" value={settings.about_values_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Nilai-nilai fundamental yang menjadi fondasi..." />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Cerita Kami - Judul</label>
+              <input type="text" name="about_history_title" value={settings.about_history_title || ''} onChange={handleInputChange} className="input-field" placeholder="Cerita Kami" />
+            </div>
+          </div>
+        </div>
+
+        {/* Services Page */}
+        <div className="space-y-6">
+          <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Katalog</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Judul Halaman</label>
+              <input type="text" name="services_hero_title" value={settings.services_hero_title || ''} onChange={handleInputChange} className="input-field" placeholder="Katalog Produk" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Subjudul Halaman</label>
+              <input type="text" name="services_hero_subtitle" value={settings.services_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas." />
+            </div>
           </div>
         </div>
       </div>

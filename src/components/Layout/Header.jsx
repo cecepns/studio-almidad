@@ -61,8 +61,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 space-x-3">
-              <img src={Logo}  className="w-14 h-auto" />
+            <Link to="/" className="flex items-center space-x-3">
+              <img src={Logo}  className="w-6 md:w-10 h-auto" />
               <img src={LogoWhite}  className="w-full h-8 md:h-14" />
             </Link>
 

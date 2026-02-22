@@ -5,7 +5,7 @@ import SEO from '../components/Common/SEO';
 import Loading from '../components/Common/Loading';
 import Pagination from '../components/Common/Pagination';
 import { Search, ListFilter as Filter, X } from 'lucide-react';
-import { productsAPI, categoriesAPI, getImageUrl } from '../utils/api';
+import { productsAPI, categoriesAPI, settingsAPI, getImageUrl } from '../utils/api';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -18,6 +18,7 @@ const Services = () => {
   const [subcategories, setSubcategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [settings, setSettings] = useState({});
 
   const fetchCategories = useCallback(async () => {
     try {
@@ -62,6 +63,18 @@ const Services = () => {
     AOS.init({ duration: 1000 });
     fetchCategories();
   }, [fetchCategories]);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await settingsAPI.get();
+        setSettings(response.data.data || {});
+      } catch (error) {
+        console.error('Error fetching settings:', error);
+      }
+    };
+    fetchSettings();
+  }, []);
 
   useEffect(() => {
     fetchServices();
@@ -117,10 +130,10 @@ const Services = () => {
           {/* Header */}
           <div className="text-center mb-12" data-aos="fade-up">
             <h1 className="text-4xl font-bold text-secondary-900 mb-4">
-              Katalog Produk
+              {settings.services_hero_title || 'Katalog Produk'}
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas.
+              {settings.services_hero_subtitle || 'Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas.'}
             </p>
           </div>
 
