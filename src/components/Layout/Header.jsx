@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from '../../assets/logo.png';
 import GoogleTranslate from '../Common/GoogleTranslate';
 import { settingsAPI } from '../../utils/api';
+import LogoWhite from '../../assets/logo-white.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [settings, setSettings] = useState({
+  const [, setSettings] = useState({
     company_phone: '',
     company_email: '',
     company_address: '',
@@ -49,35 +50,9 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const topPhone = settings.company_phone || '089699300300';
-  const topEmail = settings.company_email || 'info@studioalmidad.com';
-  const topAddress = settings.company_address
-    ? settings.company_address.split('\n')[0]
-    : 'Jl. Wolter Monginsidi Gg. VII No. 17 Sumber Salak, Kranjingan, Sumbersari, Jember, Jawa Timur 68123';
-
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-secondary-900 text-white py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
-            <div className="flex items-center space-x-4 mb-1 sm:mb-0">
-              <div className="flex items-center space-x-1">
-                <Phone size={14} />
-                <span>{topPhone}</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Mail size={14} />
-                <span>{topEmail}</span>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2 sm:gap-4">
-              <GoogleTranslate variant="light" />
-              <span className="text-center sm:text-right">{topAddress}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Top Bar - commented out */}
 
       {/* Main Header */}
       <header className={`sticky top-0 z-10 border-b-2 border-slate-200 transition-all duration-300 ${
@@ -86,12 +61,13 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center gap-2 space-x-3">
               <img src={Logo}  className="w-14 h-auto" />
+              <img src={LogoWhite}  className="w-full h-8 md:h-14" />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex items-center space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -103,6 +79,7 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <GoogleTranslate />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -129,6 +106,9 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="px-4 pt-3 border-t border-gray-200 mt-3">
+                <GoogleTranslate />
+              </div>
             </nav>
           )}
         </div>

@@ -18,11 +18,13 @@ const Settings = () => {
     company_history: '',
     company_vision: '',
     company_mission: '',
+    about_page_image: '',
     facebook_pixel_id: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingAboutImage, setUploadingAboutImage] = useState(false);
+  const [uploadingAboutPageImage, setUploadingAboutPageImage] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -71,6 +73,32 @@ const Settings = () => {
       alert('Error uploading image');
     } finally {
       setUploadingAboutImage(false);
+    }
+  };
+
+  const handleAboutPageImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploadingAboutPageImage(true);
+    try {
+      const response = await uploadAPI.uploadImage(file);
+      const imageUrl = response.data?.data?.url || response.data?.url;
+
+      if (!imageUrl) {
+        alert('Error: No image URL received from server');
+        return;
+      }
+
+      setSettings(prev => ({
+        ...prev,
+        about_page_image: imageUrl
+      }));
+    } catch (error) {
+      console.error('Error uploading about page image:', error);
+      alert('Error uploading image');
+    } finally {
+      setUploadingAboutPageImage(false);
     }
   };
 
@@ -232,6 +260,38 @@ const Settings = () => {
               This will be displayed on the About page and other sections of your website.
             </p>
           </div>
+
+        <div className="mt-6">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            About Page Image
+          </label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleAboutPageImageUpload}
+            className="input-field mb-2"
+            disabled={uploadingAboutPageImage}
+          />
+          {uploadingAboutPageImage && (
+            <div className="flex items-center space-x-2 text-primary-600 text-sm mb-2">
+              <div className="w-4 h-4 border-2 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
+              <span>Uploading...</span>
+            </div>
+          )}
+          {settings.about_page_image && (
+            <div className="mt-2 mb-4">
+              <p className="text-sm font-medium text-gray-700 mb-2">Preview:</p>
+              <img
+                src={getImageUrl(settings.about_page_image)}
+                alt="About Page"
+                className="w-full max-w-md h-48 object-contain rounded-lg border border-gray-200"
+              />
+            </div>
+          )}
+          <p className="text-sm text-gray-500 mb-6">
+            Gambar ini ditampilkan di halaman Tentang Kami (Company Overview). Kosongkan dengan mengganti gambar atau simpan pengaturan lain tanpa mengubah ini.
+          </p>
+        </div>
 
         <div className="mt-6">
           <label className="block text-sm font-medium text-gray-700 mb-2">

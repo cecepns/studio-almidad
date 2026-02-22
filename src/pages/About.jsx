@@ -10,7 +10,7 @@ import {
   CircleCheck as CheckCircle,
   Lightbulb,
 } from "lucide-react";
-import { settingsAPI } from "../utils/api";
+import { settingsAPI, getImageUrl } from "../utils/api";
 import AboutImage from "../assets/logo.png";
 
 const About = () => {
@@ -20,6 +20,7 @@ const About = () => {
     company_history: '',
     company_vision: '',
     company_mission: '',
+    about_page_image: '',
   });
   const [loading, setLoading] = useState(true);
 
@@ -38,6 +39,7 @@ const About = () => {
         company_history: settingsData.company_history || '',
         company_vision: settingsData.company_vision || '',
         company_mission: settingsData.company_mission || '',
+        about_page_image: settingsData.about_page_image || '',
       });
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -176,8 +178,8 @@ const About = () => {
             <div data-aos="fade-left">
               <div className="w-full h-64 md:h-96 shadow-sm rounded border border-slate-200 p-4">
                 <img
-                  src={AboutImage}
-                  alt="Studio Almidad"
+                  src={settings.about_page_image ? getImageUrl(settings.about_page_image) : AboutImage}
+                  alt={settings.company_name || 'Studio Almidad'}
                   className="w-full h-full object-contain"
                 />
               </div>
