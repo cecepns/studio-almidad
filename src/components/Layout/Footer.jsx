@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { settingsAPI } from '../../utils/api';
 
 const Footer = () => {
@@ -9,7 +9,6 @@ const Footer = () => {
     company_address: '',
     company_phone: '',
     company_email: '',
-    company_working_hours: '',
     company_about: ''
   });
   const [loading, setLoading] = useState(true);
@@ -27,7 +26,6 @@ const Footer = () => {
         company_address: settingsData.company_address || 'Jl. Wolter Monginsidi Gg. VII No. 17 Sumber Salak, Kranjingan, Sumbersari, Jember, Jawa Timur 68123',
         company_phone: settingsData.company_phone || '',
         company_email: settingsData.company_email || '',
-        company_working_hours: settingsData.company_working_hours || '',
         company_about: settingsData.company_about || 'Studio Almidad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas.'
       });
     } catch (error) {
@@ -35,13 +33,6 @@ const Footer = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const formatWorkingHours = (hours) => {
-    if (!hours) return null;
-    return hours.split('\n').map((line, index) => (
-      <p key={index}>{line}</p>
-    ));
   };
 
   if (loading) {
@@ -108,24 +99,17 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Business Hours */}
-          {settings.company_working_hours && (
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Jam Operasional</h4>
-              <div className="space-y-2">
-                <div className="flex items-start space-x-3">
-                  <Clock size={18} className="text-primary-400 mt-1" />
-                  <div className="text-gray-400 text-sm whitespace-pre-line">
-                    {formatWorkingHours(settings.company_working_hours)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Flag Counter */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Visitors</h4>
+            <a href="https://info.flagcounter.com/1adR" target="_blank" rel="noopener noreferrer">
+              <img src="https://s01.flagcounter.com/count2/1adR/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" className="border-0" />
+            </a>
+          </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} {settings.company_name}. All rights reserved.
             </p>

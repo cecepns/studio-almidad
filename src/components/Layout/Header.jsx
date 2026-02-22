@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import Logo from '../../assets/logo.png';
+import GoogleTranslate from '../Common/GoogleTranslate';
 import { settingsAPI } from '../../utils/api';
 
 const Header = () => {
@@ -48,11 +49,11 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const topPhone = settings.company_phone || '081234567890';
+  const topPhone = settings.company_phone || '089699300300';
   const topEmail = settings.company_email || 'info@studioalmidad.com';
   const topAddress = settings.company_address
     ? settings.company_address.split('\n')[0]
-    : 'Jl. Wolter Monginsidi Gg. VII No. 17, Kranjingan, Sumbersari, Jember';
+    : 'Jl. Wolter Monginsidi Gg. VII No. 17 Sumber Salak, Kranjingan, Sumbersari, Jember, Jawa Timur 68123';
 
   return (
     <>
@@ -70,15 +71,16 @@ const Header = () => {
                 <span>{topEmail}</span>
               </div>
             </div>
-            <div className="text-center sm:text-right">
-              <span>{topAddress}</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2 sm:gap-4">
+              <GoogleTranslate variant="light" />
+              <span className="text-center sm:text-right">{topAddress}</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Header */}
-      <header className={`sticky top-0 z-50 border-b-2 border-slate-200 transition-all duration-300 ${
+      <header className={`sticky top-0 z-10 border-b-2 border-slate-200 transition-all duration-300 ${
         isScrolled ? 'bg-white' : 'bg-white'
       }`}>
         <div className="container mx-auto px-4">

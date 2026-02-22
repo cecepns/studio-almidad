@@ -116,6 +116,23 @@ const generateSlug = (title) => {
     .replace(/^-+|-+$/g, '');
 };
 
+// Helper to safely unlink image file from URL (e.g. /uploads/image-xxx.png)
+const unlinkImageIfExists = (imageUrl) => {
+  if (!imageUrl || typeof imageUrl !== 'string') return;
+  try {
+    const relativePath = imageUrl.replace(/^\/+uploads\/?/, '').replace(/^uploads\/?/, '').replace(/^https?:\/\/[^/]+\/uploads\/?/, '');
+    if (!relativePath) return;
+    const filePath = path.join(uploadsDir, relativePath);
+    fs.unlink(filePath, (err) => {
+      if (err && err.code !== 'ENOENT') {
+        console.error('Error unlinking image:', filePath, err);
+      }
+    });
+  } catch (e) {
+    console.error('Error parsing image path for unlink:', e);
+  }
+};
+
 // =================== AUTH ROUTES ===================
 
 // Admin login
@@ -341,30 +358,46 @@ app.put('/api/products/:id', authenticateToken, (req, res) => {
       return res.status(400).json({ success: false, message: 'Title and description required' });
     }
 
-    const slug = generateSlug(title);
-
-    const query = `
-      UPDATE products
-      SET title = ?, slug = ?, description = ?, image = ?, category = ?, 
-          category_id = ?, subcategory_id = ?, updated_at = CURRENT_TIMESTAMP
-      WHERE id = ?
-    `;
-    
-    db.query(query, [title, slug, description, image, category || null, category_id || null, subcategory_id || null, id], (err, result) => {
-      if (err) {
-        if (err.code === 'ER_DUP_ENTRY') {
-          return res.status(400).json({ success: false, message: 'Product with this title already exists' });
-        }
+    const getQuery = 'SELECT image FROM products WHERE id = ?';
+    db.query(getQuery, [id], (getErr, getResults) => {
+      if (getErr) {
         return res.status(500).json({ success: false, message: 'Database error' });
       }
-
-      if (result.affectedRows === 0) {
+      if (getResults.length === 0) {
         return res.status(404).json({ success: false, message: 'Product not found' });
       }
 
-      res.json({
-        success: true,
-        message: 'Product updated successfully'
+      const oldImage = getResults[0].image;
+
+      const slug = generateSlug(title);
+      const query = `
+        UPDATE products
+        SET title = ?, slug = ?, description = ?, image = ?, category = ?, 
+            category_id = ?, subcategory_id = ?, updated_at = CURRENT_TIMESTAMP
+        WHERE id = ?
+      `;
+
+      db.query(query, [title, slug, description, image, category || null, category_id || null, subcategory_id || null, id], (err, result) => {
+        if (err) {
+          if (err.code === 'ER_DUP_ENTRY') {
+            return res.status(400).json({ success: false, message: 'Product with this title already exists' });
+          }
+          return res.status(500).json({ success: false, message: 'Database error' });
+        }
+
+        if (result.affectedRows === 0) {
+          return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+
+        // Unlink old image if it was replaced
+        if (image && oldImage && oldImage !== image) {
+          unlinkImageIfExists(oldImage);
+        }
+
+        res.json({
+          success: true,
+          message: 'Product updated successfully'
+        });
       });
     });
   } catch (error) {
@@ -377,20 +410,35 @@ app.delete('/api/products/:id', authenticateToken, (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = 'DELETE FROM products WHERE id = ?';
-    
-    db.query(query, [id], (err, result) => {
-      if (err) {
+    const getQuery = 'SELECT image FROM products WHERE id = ?';
+    db.query(getQuery, [id], (getErr, getResults) => {
+      if (getErr) {
         return res.status(500).json({ success: false, message: 'Database error' });
       }
-
-      if (result.affectedRows === 0) {
+      if (getResults.length === 0) {
         return res.status(404).json({ success: false, message: 'Product not found' });
       }
 
-      res.json({
-        success: true,
-        message: 'Product deleted successfully'
+      const imageToUnlink = getResults[0].image;
+
+      const query = 'DELETE FROM products WHERE id = ?';
+      db.query(query, [id], (err, result) => {
+        if (err) {
+          return res.status(500).json({ success: false, message: 'Database error' });
+        }
+
+        if (result.affectedRows === 0) {
+          return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+
+        if (imageToUnlink) {
+          unlinkImageIfExists(imageToUnlink);
+        }
+
+        res.json({
+          success: true,
+          message: 'Product deleted successfully'
+        });
       });
     });
   } catch (error) {
@@ -499,6 +547,12 @@ app.put('/api/banners/:id', authenticateToken, (req, res) => {
           return res.status(404).json({ success: false, message: 'Banner not found' });
         }
 
+        // Unlink old image if it was replaced
+        const oldImage = results[0].image;
+        if (image && oldImage && oldImage !== image) {
+          unlinkImageIfExists(oldImage);
+        }
+
         res.json({
           success: true,
           message: 'Banner updated successfully'
@@ -516,20 +570,35 @@ app.delete('/api/banners/:id', authenticateToken, (req, res) => {
   try {
     const { id } = req.params;
 
-    const query = 'DELETE FROM banners WHERE id = ?';
-    
-    db.query(query, [id], (err, result) => {
-      if (err) {
+    const getQuery = 'SELECT image FROM banners WHERE id = ?';
+    db.query(getQuery, [id], (getErr, getResults) => {
+      if (getErr) {
         return res.status(500).json({ success: false, message: 'Database error' });
       }
-
-      if (result.affectedRows === 0) {
+      if (getResults.length === 0) {
         return res.status(404).json({ success: false, message: 'Banner not found' });
       }
 
-      res.json({
-        success: true,
-        message: 'Banner deleted successfully'
+      const imageToUnlink = getResults[0].image;
+
+      const query = 'DELETE FROM banners WHERE id = ?';
+      db.query(query, [id], (err, result) => {
+        if (err) {
+          return res.status(500).json({ success: false, message: 'Database error' });
+        }
+
+        if (result.affectedRows === 0) {
+          return res.status(404).json({ success: false, message: 'Banner not found' });
+        }
+
+        if (imageToUnlink) {
+          unlinkImageIfExists(imageToUnlink);
+        }
+
+        res.json({
+          success: true,
+          message: 'Banner deleted successfully'
+        });
       });
     });
   } catch (error) {
