@@ -1,0 +1,112 @@
+@import 'aos/dist/aos.css';
+@import 'react-quill/dist/quill.snow.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2.5 px-6 rounded-full shadow-md transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-800 hover:bg-secondary-900 text-white font-semibold py-2.5 px-6 rounded-full shadow-md transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-300 text-primary-600 bg-white hover:bg-primary-50 hover:border-primary-400 font-semibold py-2.5 px-6 rounded-full transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-md border border-gray-100;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-400 focus:border-primary-400;
+  }
+}
+
+.ql-editor {
+  min-height: 200px;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 4px 4px 0 0;
+  background: #fafafa;
+}
+
+.ql-container {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+  font-size: 16px;
+}
+
+.quill-wrapper .ql-container {
+  min-height: 200px;
+}
+
+.quill-wrapper .ql-editor {
+  min-height: 200px;
+}
+
+/* Swiper Custom Styles */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+  width: 32px;
+  border-radius: 6px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* backdrop-filter: blur(10px); */
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev svg, .swiper-button-next svg {
+  height: 50%;
+  width: 50%;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  /* background: rgba(255, 255, 255, 0.2); */
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.swiper-pagination {
+  bottom: 30px !important;
+}
