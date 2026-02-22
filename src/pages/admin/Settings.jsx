@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
-import { Save, Building, MapPin, Phone, Mail, Globe, Info, Clock, Target, Image as ImageIcon, Type } from 'lucide-react';
+import { Save, Building, MapPin, Phone, Mail, Globe, Info, Clock, Target, Image as ImageIcon, Type, Instagram } from 'lucide-react';
 import { settingsAPI, uploadAPI, getImageUrl } from '../../utils/api';
 
 const Settings = () => {
@@ -35,7 +35,10 @@ const Settings = () => {
     services_hero_title: '',
     services_hero_subtitle: '',
     contact_location_title: '',
-    contact_location_description: ''
+    contact_location_description: '',
+    company_warehouse_address: '',
+    instagram_username: '',
+    instagram_url: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -211,7 +214,7 @@ const Settings = () => {
 
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Company Address *
+                Company Address (Workshop/Store) *
               </label>
               <div className="relative">
                 <MapPin className="absolute left-3 top-3 text-gray-400" size={16} />
@@ -227,6 +230,26 @@ const Settings = () => {
               </div>
               <p className="text-sm text-gray-500 mt-2">
                 Gunakan baris baru untuk memisahkan setiap baris alamat.
+              </p>
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Warehouse Address (optional)
+              </label>
+              <div className="relative">
+                <MapPin className="absolute left-3 top-3 text-gray-400" size={16} />
+                <textarea
+                  name="company_warehouse_address"
+                  rows={2}
+                  value={settings.company_warehouse_address || ''}
+                  onChange={handleInputChange}
+                  className="input-field pl-10 resize-none"
+                  placeholder="Jl. Gudang No. 1, Kecamatan X, Kota Y"
+                />
+              </div>
+              <p className="text-sm text-gray-500 mt-2">
+                Alamat gudang akan ditampilkan di halaman Kontak jika diisi.
               </p>
             </div>
 
@@ -498,12 +521,48 @@ const Settings = () => {
           <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Kontak</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi - Judul</label>
-              <input type="text" name="contact_location_title" value={settings.contact_location_title || ''} onChange={handleInputChange} className="input-field" placeholder="Lokasi Kami" />
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi (Find Us) - Judul</label>
+              <input type="text" name="contact_location_title" value={settings.contact_location_title || ''} onChange={handleInputChange} className="input-field" placeholder="Find Us" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi - Deskripsi</label>
               <textarea name="contact_location_description" rows={3} value={settings.contact_location_description || ''} onChange={handleInputChange} className="input-field resize-none" placeholder="Kunjungi studio kami. Kami siap melayani pesanan custom Anda." />
+            </div>
+            <div className="md:col-span-2 border-t pt-6 mt-4">
+              <div className="flex items-center gap-2 mb-4">
+                <Instagram className="text-primary-600" size={20} />
+                <h4 className="font-medium text-gray-800">Instagram</h4>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Username Instagram (editable)</label>
+                  <input
+                    type="text"
+                    name="instagram_username"
+                    value={settings.instagram_username || ''}
+                    onChange={handleInputChange}
+                    className="input-field"
+                    placeholder="@menggeris_official atau menggeris_official"
+                  />
+                  <p className="text-sm text-gray-500 mt-2">
+                    Ditampilkan sebagai &quot;Follow Us @username&quot; di halaman Kontak.
+                  </p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Link Instagram (optional)</label>
+                  <input
+                    type="url"
+                    name="instagram_url"
+                    value={settings.instagram_url || ''}
+                    onChange={handleInputChange}
+                    className="input-field"
+                    placeholder="https://instagram.com/menggeris_official"
+                  />
+                  <p className="text-sm text-gray-500 mt-2">
+                    Kosongkan untuk auto-generate dari username (https://instagram.com/username).
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
