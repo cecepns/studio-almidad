@@ -78,7 +78,7 @@ html.translated-rtl body {
   }
   
   .btn-outline {
-    @apply border-2 border-primary-300 text-primary-600 bg-white hover:bg-primary-50 hover:border-primary-400 font-semibold py-2.5 px-6 rounded-full transition-all duration-200;
+    @apply border-2 border-primary-400 text-primary-600 bg-white hover:bg-primary-50 hover:border-primary-500 font-semibold py-2.5 px-6 rounded-full transition-all duration-200;
   }
   
   .card {

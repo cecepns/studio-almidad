@@ -7,18 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary: gold/yellow accent from Studio Almidad logo
+        // Primary: gold accent (#D4AF37) from Studio Almidad
         primary: {
-          50:  '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          50:  '#FBF8EF',
+          100: '#F5EED0',
+          200: '#F0DEA0',
+          300: '#E8CC6B',
+          400: '#E5C158',
+          500: '#D4AF37',
+          600: '#C5A028',
+          700: '#B8960C',
+          800: '#8B6914',
+          900: '#6B5012',
         },
         // Secondary: dark accent for contrast
         secondary: {

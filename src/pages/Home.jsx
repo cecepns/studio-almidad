@@ -195,7 +195,7 @@ const Home = () => {
                 >
                   <Link
                     to="/services"
-                    className="bg-primary-500 hover:bg-primary-600 text-secondary-900 inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
+                    className="bg-primary-500 hover:bg-primary-600 text-white inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
                   >
                     <span>Lihat Katalog</span>
                     <ArrowRight size={20} />
@@ -395,7 +395,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="bg-[#D4AF37] hover:bg-[#C5A028] text-secondary-900 inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
+              className="bg-primary-500 hover:bg-primary-600 text-white inline-flex items-center justify-center space-x-2 px-8 py-4 text-lg rounded-lg font-semibold transition-colors"
             >
               <span>Hubungi Kami</span>
               <ArrowRight size={20} />
