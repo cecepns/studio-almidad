@@ -7,6 +7,11 @@ import {
   Gift,
   Palette,
   Shirt,
+  Star,
+  Heart,
+  Camera,
+  ShoppingBag,
+  Box,
 } from "lucide-react";
 import { bannersAPI, productsAPI, settingsAPI, getImageUrl } from "../utils/api";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -63,23 +68,55 @@ const Home = () => {
     { icon: Shirt, label: "Apparel", description: "Pakaian & aksesoris dengan nilai estetika" },
   ];
 
+  const iconMap = {
+    Gift,
+    Palette,
+    Shirt,
+    Star,
+    Heart,
+    Camera,
+    ShoppingBag,
+    Box,
+  };
+
+  const resolveIcon = (iconName, fallbackIcon) => {
+    if (!iconName) return fallbackIcon;
+    const IconComponent = iconMap[iconName];
+    return IconComponent || fallbackIcon;
+  };
+
   const categories = [
     {
-      icon: Gift,
+      icon: resolveIcon(settings.home_category1_icon, defaultCategories[0].icon),
       label: settings.home_category1_label || defaultCategories[0].label,
       description: settings.home_category1_description || defaultCategories[0].description,
     },
     {
-      icon: Palette,
+      icon: resolveIcon(settings.home_category2_icon, defaultCategories[1].icon),
       label: settings.home_category2_label || defaultCategories[1].label,
       description: settings.home_category2_description || defaultCategories[1].description,
     },
     {
-      icon: Shirt,
+      icon: resolveIcon(settings.home_category3_icon, defaultCategories[2].icon),
       label: settings.home_category3_label || defaultCategories[2].label,
       description: settings.home_category3_description || defaultCategories[2].description,
     },
   ];
+
+  const hasExtraCategory =
+    settings.home_category4_label ||
+    settings.home_category4_description ||
+    settings.home_category4_icon;
+
+  if (hasExtraCategory) {
+    categories.push({
+      icon: resolveIcon(settings.home_category4_icon, Star),
+      label: settings.home_category4_label || "Kategori Tambahan",
+      description:
+        settings.home_category4_description ||
+        "Kategori tambahan untuk kebutuhan khusus Anda.",
+    });
+  }
 
   const homeAboutTitle = settings.home_about_title || "Studio Al - Midad";
   const homeAboutDescription =
@@ -253,7 +290,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             {categories.map((cat, index) => (
               <div
                 key={index}

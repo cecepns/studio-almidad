@@ -3,6 +3,19 @@ import AOS from 'aos';
 import { Save, Building, MapPin, Phone, Mail, Globe, Info, Clock, Target, Image as ImageIcon, Type, Instagram } from 'lucide-react';
 import { settingsAPI, uploadAPI, getImageUrl } from '../../utils/api';
 
+// List icon yang bisa dipilih untuk kategori di beranda.
+// Nilai `value` harus sama dengan nama icon di lucide-react.
+const HOME_CATEGORY_ICON_OPTIONS = [
+  { value: 'Gift', label: 'Gift (ikon kado)' },
+  { value: 'Palette', label: 'Palette (ikon palet warna)' },
+  { value: 'Shirt', label: 'Shirt (ikon kaos)' },
+  { value: 'Star', label: 'Star (ikon bintang)' },
+  { value: 'Heart', label: 'Heart (ikon hati)' },
+  { value: 'Camera', label: 'Camera (ikon kamera)' },
+  { value: 'ShoppingBag', label: 'ShoppingBag (ikon tas belanja)' },
+  { value: 'Box', label: 'Box (ikon box/kotak)' },
+];
+
 const Settings = () => {
   const [settings, setSettings] = useState({
     company_name: '',
@@ -24,10 +37,16 @@ const Settings = () => {
     home_categories_subtitle: '',
     home_category1_label: '',
     home_category1_description: '',
+    home_category1_icon: '',
     home_category2_label: '',
     home_category2_description: '',
+    home_category2_icon: '',
     home_category3_label: '',
     home_category3_description: '',
+    home_category3_icon: '',
+    home_category4_label: '',
+    home_category4_description: '',
+    home_category4_icon: '',
     home_products_title: '',
     home_products_subtitle: '',
     home_cta_title: '',
@@ -486,11 +505,12 @@ const Settings = () => {
 
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <p className="text-sm text-gray-600 mb-2">
-                Atur teks untuk 3 kategori utama di section &quot;Apa yang Kami Tawarkan&quot; di halaman beranda.
-                Kosongkan untuk menggunakan teks default (Suvenir, Artwork, Apparel).
+                Atur teks dan icon untuk 3 kategori utama di section &quot;Apa yang Kami Tawarkan&quot; di halaman beranda.
+                Kosongkan untuk menggunakan teks dan icon default (Suvenir, Artwork, Apparel).
               </p>
             </div>
 
+            {/* Kategori 1 */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 1 - Nama</label>
               <input
@@ -513,7 +533,24 @@ const Settings = () => {
                 placeholder="Hadiah bermakna untuk setiap momen istimewa"
               />
             </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 1 - Icon</label>
+              <select
+                name="home_category1_icon"
+                value={settings.home_category1_icon || ''}
+                onChange={handleInputChange}
+                className="input-field"
+              >
+                <option value="">Default (Gift)</option>
+                {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
+            {/* Kategori 2 */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 2 - Nama</label>
               <input
@@ -536,7 +573,24 @@ const Settings = () => {
                 placeholder="Karya seni Islami dengan desain eksklusif"
               />
             </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 2 - Icon</label>
+              <select
+                name="home_category2_icon"
+                value={settings.home_category2_icon || ''}
+                onChange={handleInputChange}
+                className="input-field"
+              >
+                <option value="">Default (Palette)</option>
+                {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
+            {/* Kategori 3 */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 3 - Nama</label>
               <input
@@ -559,7 +613,69 @@ const Settings = () => {
                 placeholder="Pakaian & aksesoris dengan nilai estetika"
               />
             </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 3 - Icon</label>
+              <select
+                name="home_category3_icon"
+                value={settings.home_category3_icon || ''}
+                onChange={handleInputChange}
+                className="input-field"
+              >
+                <option value="">Default (Shirt)</option>
+                {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
+            {/* Kategori 4 (opsional) */}
+            <div className="md:col-span-2 border-t pt-4 mt-2">
+              <p className="text-sm text-gray-600 mb-2">
+                Kategori 4 bersifat opsional. Isi jika Anda ingin menambahkan satu poin tambahan di section kategori.
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 4 - Nama</label>
+              <input
+                type="text"
+                name="home_category4_label"
+                value={settings.home_category4_label || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Kategori Tambahan"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 4 - Deskripsi</label>
+              <input
+                type="text"
+                name="home_category4_description"
+                value={settings.home_category4_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Deskripsi kategori tambahan Anda"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 4 - Icon</label>
+              <select
+                name="home_category4_icon"
+                value={settings.home_category4_icon || ''}
+                onChange={handleInputChange}
+                className="input-field"
+              >
+                <option value="">Default (Star)</option>
+                {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Section Produk & CTA */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Produk Unggulan - Judul</label>
               <input
