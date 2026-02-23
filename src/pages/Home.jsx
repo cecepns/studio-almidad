@@ -313,7 +313,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {categories.map((cat, index) => (
               <div
                 key={index}
