@@ -22,11 +22,11 @@ const Footer = () => {
       const response = await settingsAPI.get();
       const settingsData = response.data.data || {};
       setSettings({
-        company_name: settingsData.company_name || 'Studio Almidad',
+        company_name: settingsData.company_name || 'Studio Al - Midad',
         company_address: settingsData.company_address || 'Jl. Wolter Monginsidi Gg. VII No. 17 Sumber Salak, Kranjingan, Sumbersari, Jember, Jawa Timur 68123',
         company_phone: settingsData.company_phone || '',
         company_email: settingsData.company_email || '',
-        company_about: settingsData.company_about || 'Studio Almidad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas.'
+        company_about: settingsData.company_about || 'Studio Al - Midad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas.'
       });
     } catch (error) {
       console.error('Error fetching settings:', error);

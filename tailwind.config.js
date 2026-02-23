@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary: gold accent (#D4AF37) from Studio Almidad
+        // Primary: gold accent (#D4AF37) from Studio Al - Midad
         primary: {
           50:  '#FBF8EF',
           100: '#F5EED0',

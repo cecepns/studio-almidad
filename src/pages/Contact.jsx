@@ -49,11 +49,11 @@ const Contact = () => {
       const response = await settingsAPI.get();
       const settingsData = response.data.data || {};
       setSettings({
-        company_name: settingsData.company_name || 'Studio Almidad',
+        company_name: settingsData.company_name || 'Studio Al - Midad',
         company_address: settingsData.company_address || defaultAddress,
         company_warehouse_address: settingsData.company_warehouse_address || '',
         company_phone: settingsData.company_phone || '',
-        company_email: settingsData.company_email || 'info@studioalmidad.com',
+        company_email: settingsData.company_email || 'info@studioAl - Midad.com',
         company_working_hours:
           settingsData.company_working_hours ||
           'Senin - Jumat: 08:00 - 17:00\nSabtu: 08:00 - 12:00\nMinggu: Tutup',
@@ -90,7 +90,7 @@ const Contact = () => {
     e.preventDefault();
 
     const message = [
-      `*Pesan dari Website Studio Almidad*`,
+      `*Pesan dari Website Studio Al - Midad*`,
       '',
       `*Nama:* ${formData.name}`,
       `*Email:* ${formData.email}`,
@@ -136,9 +136,9 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Hubungi Studio Almidad"
-        description="Hubungi Studio Almidad untuk pesan custom Islamic Art & Meaningful Gifts. Suvenir, Artwork, Apparel. Jember, Jawa Timur."
-        keywords="kontak Studio Almidad, alamat Jember, pesan custom Islamic art, hadiah bermakna"
+        title="Hubungi Studio Al - Midad"
+        description="Hubungi Studio Al - Midad untuk pesan custom Islamic Art & Meaningful Gifts. Suvenir, Artwork, Apparel. Jember, Jawa Timur."
+        keywords="kontak Studio Al - Midad, alamat Jember, pesan custom Islamic art, hadiah bermakna"
       />
 
       {/* Hero Section */}
@@ -161,7 +161,7 @@ const Contact = () => {
               data-aos-delay="200"
             >
               {settings.contact_hero_subtitle ||
-                'Tim Studio Almidad siap membantu Anda memenuhi kebutuhan Custom Islamic Art & Meaningful Gifts.'}
+                'Tim Studio Al - Midad siap membantu Anda memenuhi kebutuhan Custom Islamic Art & Meaningful Gifts.'}
             </p>
           </div>
         </div>
@@ -316,7 +316,7 @@ const Contact = () => {
                       href={`mailto:${settings.company_email || ''}`}
                       className="text-gray-700 hover:text-primary-600 transition-colors"
                     >
-                      {settings.company_email || 'info@studioalmidad.com'}
+                      {settings.company_email || 'info@studioAl - Midad.com'}
                     </a>
                   </div>
                 </div>

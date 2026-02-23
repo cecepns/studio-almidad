@@ -193,7 +193,7 @@ const ServiceDetail = () => {
                   </a>
                   
                   <a
-                    href="mailto:info@studioalmidad.com"
+                    href="mailto:info@studioAl - Midad.com"
                     className="flex items-center justify-center w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors"
                   >
                     <Mail className="w-5 h-5 mr-2" />
@@ -209,7 +209,7 @@ const ServiceDetail = () => {
                     </div>
                     <div className="flex items-center text-gray-600">
                       <Mail className="w-4 h-4 mr-3 text-primary-600" />
-                      <span>info@studioalmidad.com</span>
+                      <span>info@studioAl - Midad.com</span>
                     </div>
                     <div className="flex items-center text-gray-600">
                       <MapPin className="w-4 h-4 mr-3 text-primary-600" />

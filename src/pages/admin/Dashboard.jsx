@@ -87,7 +87,7 @@ const Dashboard = () => {
       {/* Welcome Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-lg p-6 text-white" data-aos="fade-up">
         <h1 className="text-2xl font-bold mb-2">Welcome to Admin Dashboard</h1>
-        <p className="text-primary-100">Manage your Studio Almidad website content</p>
+        <p className="text-primary-100">Manage your Studio Al - Midad website content</p>
       </div>
 
       {/* Stats Cards */}

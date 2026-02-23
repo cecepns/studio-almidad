@@ -57,23 +57,41 @@ const Home = () => {
     };
   }, []);
 
-  const categories = [
+  const defaultCategories = [
     { icon: Gift, label: "Suvenir", description: "Hadiah bermakna untuk setiap momen istimewa" },
     { icon: Palette, label: "Artwork", description: "Karya seni Islami dengan desain eksklusif" },
     { icon: Shirt, label: "Apparel", description: "Pakaian & aksesoris dengan nilai estetika" },
   ];
 
-  const homeAboutTitle = settings.home_about_title || "Studio Almidad";
+  const categories = [
+    {
+      icon: Gift,
+      label: settings.home_category1_label || defaultCategories[0].label,
+      description: settings.home_category1_description || defaultCategories[0].description,
+    },
+    {
+      icon: Palette,
+      label: settings.home_category2_label || defaultCategories[1].label,
+      description: settings.home_category2_description || defaultCategories[1].description,
+    },
+    {
+      icon: Shirt,
+      label: settings.home_category3_label || defaultCategories[2].label,
+      description: settings.home_category3_description || defaultCategories[2].description,
+    },
+  ];
+
+  const homeAboutTitle = settings.home_about_title || "Studio Al - Midad";
   const homeAboutDescription =
     settings.home_about_description ||
-    "Studio Almidad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Kami menyediakan Suvenir, Artwork, dan Apparel dengan desain berkualitas dan penuh makna untuk setiap momen istimewa Anda.";
+    "Studio Al - Midad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Kami menyediakan Suvenir, Artwork, dan Apparel dengan desain berkualitas dan penuh makna untuk setiap momen istimewa Anda.";
   const homeAboutImage = settings.home_about_image;
 
   return (
     <>
       <SEO
-        title="Studio Almidad - Custom Islamic Art & Meaningful Gifts"
-        description="Studio Almidad: Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas. Jember, Jawa Timur."
+        title="Studio Al - Midad - Custom Islamic Art & Meaningful Gifts"
+        description="Studio Al - Midad: Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel dengan desain berkualitas. Jember, Jawa Timur."
       />
 
       {/* Hero Banner Section */}
@@ -186,7 +204,7 @@ const Home = () => {
                   data-aos="fade-up"
                   data-aos-delay="300"
                 >
-                  Studio Almidad menyediakan produk seni Islami berkualitas dengan desain custom untuk setiap momen istimewa Anda.
+                  Studio Al - Midad menyediakan produk seni Islami berkualitas dengan desain custom untuk setiap momen istimewa Anda.
                 </p>
                 <div
                   className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
@@ -363,7 +381,7 @@ const Home = () => {
               <div className="w-full h-64 md:h-96 shadow-sm rounded border border-slate-200 p-4">
                 <img
                   src={getImageUrl(homeAboutImage) || AboutImage}
-                  alt="Tentang Studio Almidad"
+                  alt="Tentang Studio Al - Midad"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -386,7 +404,7 @@ const Home = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            {settings.home_cta_subtitle || 'Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Almidad.'}
+            {settings.home_cta_subtitle || 'Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Al - Midad.'}
           </p>
           <div
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"

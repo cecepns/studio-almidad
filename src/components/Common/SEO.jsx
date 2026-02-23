@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ 
-  title = "Studio Almidad - Custom Islamic Art & Meaningful Gifts", 
-  description = "Studio Almidad menyediakan Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel. Jember, Jawa Timur.",
-  keywords = "Studio Almidad, Islamic art, custom Islamic art, suvenir Islami, artwork Islami, apparel Islami, hadiah bermakna, Jember",
+  title = "Studio Al - Midad - Custom Islamic Art & Meaningful Gifts", 
+  description = "Studio Al - Midad menyediakan Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel. Jember, Jawa Timur.",
+  keywords = "Studio Al - Midad, Islamic art, custom Islamic art, suvenir Islami, artwork Islami, apparel Islami, hadiah bermakna, Jember",
   image = "/logo.png",
   url = window.location.href
 }) => {
-  const siteTitle = "Studio Almidad";
+  const siteTitle = "Studio Al - Midad";
   const fullTitle = title === siteTitle ? title : `${title} - ${siteTitle}`;
 
   return (
@@ -34,7 +34,7 @@ const SEO = ({
       <link rel="canonical" href={url} />
       <meta name="robots" content="index, follow" />
       <meta name="language" content="Indonesian" />
-      <meta name="author" content="Studio Almidad" />
+      <meta name="author" content="Studio Al - Midad" />
     </Helmet>
   );
 };

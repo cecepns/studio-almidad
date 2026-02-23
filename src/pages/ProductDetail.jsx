@@ -13,6 +13,10 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [ctaTexts, setCtaTexts] = useState({
+    product_detail_cta_title: '',
+    product_detail_cta_subtitle: '',
+  });
 
   const fetchProduct = useCallback(async () => {
     setLoading(true);
@@ -36,8 +40,13 @@ const ProductDetail = () => {
   const fetchPhoneNumber = useCallback(async () => {
     try {
       const response = await settingsAPI.get();
-      const phone = response.data.data?.company_phone || '';
+      const data = response.data.data || {};
+      const phone = data.company_phone || '';
       setPhoneNumber(phone);
+      setCtaTexts({
+        product_detail_cta_title: data.product_detail_cta_title || '',
+        product_detail_cta_subtitle: data.product_detail_cta_subtitle || '',
+      });
     } catch (error) {
       console.error('Error fetching phone number:', error);
     }
@@ -103,7 +112,7 @@ const ProductDetail = () => {
       <SEO 
         title={product.title}
         description={metaDescription}
-        keywords={`${product.title}, Studio Almidad, ${product.category || 'Custom Islamic Art'}`}
+        keywords={`${product.title}, Studio Al - Midad, ${product.category || 'Custom Islamic Art'}`}
         image={getImageUrl(product.image)}
       />
 
@@ -178,11 +187,11 @@ const ProductDetail = () => {
               {/* Call to Action */}
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Tertarik dengan produk ini?
+                  {ctaTexts.product_detail_cta_title || 'Tertarik dengan produk ini?'}
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Hubungi tim Studio Almidad untuk informasi lebih lanjut atau 
-                  pesanan custom sesuai kebutuhan Anda.
+                  {ctaTexts.product_detail_cta_subtitle ||
+                    'Hubungi tim Studio Al - Midad untuk informasi lebih lanjut atau pesanan custom sesuai kebutuhan Anda.'}
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                   <Link to="/contact" className="btn-primary flex-1 text-center">

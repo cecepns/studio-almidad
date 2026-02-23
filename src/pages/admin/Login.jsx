@@ -46,7 +46,7 @@ const Login = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Admin Panel</h1>
-          <p className="text-primary-200">Studio Almidad</p>
+          <p className="text-primary-200">Studio Al - Midad</p>
         </div>
 
         {/* Login Form */}

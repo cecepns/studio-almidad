@@ -25,6 +25,14 @@ const About = () => {
     about_hero_subtitle: '',
     about_values_title: '',
     about_values_subtitle: '',
+    about_value1_title: '',
+    about_value1_description: '',
+    about_value2_title: '',
+    about_value2_description: '',
+    about_value3_title: '',
+    about_value3_description: '',
+    about_value4_title: '',
+    about_value4_description: '',
     about_history_title: '',
     about_history_card_title: '',
   });
@@ -40,7 +48,7 @@ const About = () => {
       const response = await settingsAPI.get();
       const settingsData = response.data.data || {};
       setSettings({
-        company_name: settingsData.company_name || 'Studio Almidad',
+        company_name: settingsData.company_name || 'Studio Al - Midad',
         company_about: settingsData.company_about || '',
         company_history: settingsData.company_history || '',
         company_vision: settingsData.company_vision || '',
@@ -50,6 +58,14 @@ const About = () => {
         about_hero_subtitle: settingsData.about_hero_subtitle || '',
         about_values_title: settingsData.about_values_title || '',
         about_values_subtitle: settingsData.about_values_subtitle || '',
+        about_value1_title: settingsData.about_value1_title || '',
+        about_value1_description: settingsData.about_value1_description || '',
+        about_value2_title: settingsData.about_value2_title || '',
+        about_value2_description: settingsData.about_value2_description || '',
+        about_value3_title: settingsData.about_value3_title || '',
+        about_value3_description: settingsData.about_value3_description || '',
+        about_value4_title: settingsData.about_value4_title || '',
+        about_value4_description: settingsData.about_value4_description || '',
         about_history_title: settingsData.about_history_title || '',
         about_history_card_title: settingsData.about_history_card_title || '',
       });
@@ -83,7 +99,7 @@ const About = () => {
     });
   };
 
-  const values = [
+  const defaultValues = [
     {
       icon: Award,
       title: "Kualitas Terjamin",
@@ -110,10 +126,33 @@ const About = () => {
     },
   ];
 
+  const values = [
+    {
+      icon: Award,
+      title: settings.about_value1_title || defaultValues[0].title,
+      description: settings.about_value1_description || defaultValues[0].description,
+    },
+    {
+      icon: Users,
+      title: settings.about_value2_title || defaultValues[1].title,
+      description: settings.about_value2_description || defaultValues[1].description,
+    },
+    {
+      icon: Lightbulb,
+      title: settings.about_value3_title || defaultValues[2].title,
+      description: settings.about_value3_description || defaultValues[2].description,
+    },
+    {
+      icon: CheckCircle,
+      title: settings.about_value4_title || defaultValues[3].title,
+      description: settings.about_value4_description || defaultValues[3].description,
+    },
+  ];
+
   const defaultCompanyHistory =
-    "Studio Almidad didirikan dengan semangat untuk menghadirkan Custom Islamic Art & Meaningful Gifts yang berkualitas.\n\n" +
+    "Studio Al - Midad didirikan dengan semangat untuk menghadirkan Custom Islamic Art & Meaningful Gifts yang berkualitas.\n\n" +
     "Kami menyediakan Suvenir, Artwork, dan Apparel dengan desain Islami yang dapat disesuaikan dengan kebutuhan Anda. Setiap produk dibuat dengan penuh perhatian terhadap detail dan nilai estetika.\n\n" +
-    "Studio Almidad berkomitmen untuk menjadi pilihan terpercaya dalam memenuhi kebutuhan hadiah bermakna dan karya seni Islami untuk berbagai momen istimewa.";
+    "Studio Al - Midad berkomitmen untuk menjadi pilihan terpercaya dalam memenuhi kebutuhan hadiah bermakna dan karya seni Islami untuk berbagai momen istimewa.";
 
   const defaultVision =
     "Menjadi studio terkemuka dalam Custom Islamic Art & Meaningful Gifts di Indonesia.\n\n" +
@@ -128,9 +167,9 @@ const About = () => {
   return (
     <>
       <SEO
-        title="Tentang Studio Almidad - Custom Islamic Art & Meaningful Gifts"
-        description="Profil Studio Almidad, penyedia Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel. Jember, Jawa Timur."
-        keywords="Studio Almidad, Islamic art, custom Islamic art, suvenir Islami, artwork Islami, apparel Islami, hadiah bermakna, Jember"
+        title="Tentang Studio Al - Midad - Custom Islamic Art & Meaningful Gifts"
+        description="Profil Studio Al - Midad, penyedia Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel. Jember, Jawa Timur."
+        keywords="Studio Al - Midad, Islamic art, custom Islamic art, suvenir Islami, artwork Islami, apparel Islami, hadiah bermakna, Jember"
       />
 
       {/* Hero Section */}
@@ -142,7 +181,7 @@ const About = () => {
               data-aos="fade-up"
             >
               {settings.about_hero_title || (
-                <>Tentang <span className="text-primary-400">Studio Almidad</span></>
+                <>Tentang <span className="text-primary-400">Studio Al - Midad</span></>
               )}
             </h1>
             <p
@@ -162,7 +201,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
               <h2 className="text-2xl lg:text-4xl font-bold text-secondary-900 mb-6">
-                {settings.company_name || 'Studio Almidad'}
+                {settings.company_name || 'Studio Al - Midad'}
               </h2>
               {loading ? (
                 <Loading />
@@ -172,7 +211,7 @@ const About = () => {
                 </>
               )}
               {!settings.company_about && formatCompanyAbout(
-                "Studio Almidad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Kami menyediakan Suvenir, Artwork, dan Apparel dengan desain Islami yang dapat disesuaikan dengan kebutuhan dan momen istimewa Anda."
+                "Studio Al - Midad bergerak di bidang Custom Islamic Art & Meaningful Gifts. Kami menyediakan Suvenir, Artwork, dan Apparel dengan desain Islami yang dapat disesuaikan dengan kebutuhan dan momen istimewa Anda."
               )}
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4">
@@ -193,7 +232,7 @@ const About = () => {
               <div className="w-full h-64 md:h-96 shadow-sm rounded border border-slate-200 p-4">
                 <img
                   src={settings.about_page_image ? getImageUrl(settings.about_page_image) : AboutImage}
-                  alt={settings.company_name || 'Studio Almidad'}
+                  alt={settings.company_name || 'Studio Al - Midad'}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -292,7 +331,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="card p-8" data-aos="fade-up">
               <h3 className="text-2xl font-bold text-secondary-900 mb-6">
-                {settings.about_history_card_title || settings.company_name || 'Studio Almidad'}
+                {settings.about_history_card_title || settings.company_name || 'Studio Al - Midad'}
               </h3>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-4">
                 {formatCompanyAbout(settings.company_history || defaultCompanyHistory)}

@@ -22,6 +22,12 @@ const Settings = () => {
     facebook_pixel_id: '',
     home_categories_title: '',
     home_categories_subtitle: '',
+    home_category1_label: '',
+    home_category1_description: '',
+    home_category2_label: '',
+    home_category2_description: '',
+    home_category3_label: '',
+    home_category3_description: '',
     home_products_title: '',
     home_products_subtitle: '',
     home_cta_title: '',
@@ -30,10 +36,20 @@ const Settings = () => {
     about_hero_subtitle: '',
     about_values_title: '',
     about_values_subtitle: '',
+    about_value1_title: '',
+    about_value1_description: '',
+    about_value2_title: '',
+    about_value2_description: '',
+    about_value3_title: '',
+    about_value3_description: '',
+    about_value4_title: '',
+    about_value4_description: '',
     about_history_title: '',
     about_history_card_title: '',
     services_hero_title: '',
     services_hero_subtitle: '',
+    product_detail_cta_title: '',
+    product_detail_cta_subtitle: '',
     contact_location_title: '',
     contact_location_description: '',
     contact_hero_title: '',
@@ -174,7 +190,7 @@ const Settings = () => {
                 value={settings.company_name || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Studio Almidad"
+                placeholder="Studio Al - Midad"
               />
             </div>
 
@@ -191,7 +207,7 @@ const Settings = () => {
                   value={settings.company_email || ''}
                   onChange={handleInputChange}
                   className="input-field pl-10"
-                  placeholder="info@studioalmidad.com"
+                  placeholder="info@studioAl - Midad.com"
                 />
               </div>
             </div>
@@ -345,7 +361,7 @@ const Settings = () => {
             onChange={handleInputChange}
             className="input-field resize-none"
             placeholder={
-              "Studio Almidad berdiri dengan visi menghadirkan Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda.\n\n" +
+              "Studio Al - Midad berdiri dengan visi menghadirkan Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda.\n\n" +
               "Berawal dari kecintaan akan seni islami dan keinginan menghadirkan suvenir, artwork, serta apparel bermakna, kami terus mengembangkan kualitas produk dan layanan agar setiap pelanggan mendapatkan pengalaman berbelanja yang memuaskan.\n\n" +
               "Dengan fokus pada kualitas, ketelitian, dan makna di balik setiap produk, kami berkomitmen menjadi mitra terpercaya untuk Custom Islamic Art & Meaningful Gifts Anda."
             }
@@ -375,7 +391,7 @@ const Settings = () => {
                 value={settings.home_about_title || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Studio Almidad"
+                placeholder="Studio Al - Midad"
               />
             </div>
 
@@ -447,27 +463,146 @@ const Settings = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Kategori (Apa yang Kami Tawarkan) - Judul</label>
-              <input type="text" name="home_categories_title" value={settings.home_categories_title || ''} onChange={handleInputChange} className="input-field" placeholder="Apa yang Kami Tawarkan" />
+              <input
+                type="text"
+                name="home_categories_title"
+                value={settings.home_categories_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Apa yang Kami Tawarkan"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Kategori - Subjudul</label>
-              <input type="text" name="home_categories_subtitle" value={settings.home_categories_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda" />
+              <input
+                type="text"
+                name="home_categories_subtitle"
+                value={settings.home_categories_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Custom Islamic Art & Meaningful Gifts untuk setiap kebutuhan Anda"
+              />
+            </div>
+
+            <div className="md:col-span-2 border-t pt-4 mt-2">
+              <p className="text-sm text-gray-600 mb-2">
+                Atur teks untuk 3 kategori utama di section &quot;Apa yang Kami Tawarkan&quot; di halaman beranda.
+                Kosongkan untuk menggunakan teks default (Suvenir, Artwork, Apparel).
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 1 - Nama</label>
+              <input
+                type="text"
+                name="home_category1_label"
+                value={settings.home_category1_label || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Suvenir"
+              />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 1 - Deskripsi</label>
+              <input
+                type="text"
+                name="home_category1_description"
+                value={settings.home_category1_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Hadiah bermakna untuk setiap momen istimewa"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 2 - Nama</label>
+              <input
+                type="text"
+                name="home_category2_label"
+                value={settings.home_category2_label || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Artwork"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 2 - Deskripsi</label>
+              <input
+                type="text"
+                name="home_category2_description"
+                value={settings.home_category2_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Karya seni Islami dengan desain eksklusif"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 3 - Nama</label>
+              <input
+                type="text"
+                name="home_category3_label"
+                value={settings.home_category3_label || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Apparel"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 3 - Deskripsi</label>
+              <input
+                type="text"
+                name="home_category3_description"
+                value={settings.home_category3_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Pakaian & aksesoris dengan nilai estetika"
+              />
+            </div>
+
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Produk Unggulan - Judul</label>
-              <input type="text" name="home_products_title" value={settings.home_products_title || ''} onChange={handleInputChange} className="input-field" placeholder="Produk Unggulan" />
+              <input
+                type="text"
+                name="home_products_title"
+                value={settings.home_products_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Produk Unggulan"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Produk Unggulan - Subjudul</label>
-              <input type="text" name="home_products_subtitle" value={settings.home_products_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Temukan berbagai produk Suvenir, Artwork, dan Apparel berkualitas..." />
+              <input
+                type="text"
+                name="home_products_subtitle"
+                value={settings.home_products_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Temukan berbagai produk Suvenir, Artwork, dan Apparel berkualitas..."
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section CTA (Ingin Pesan Custom) - Judul</label>
-              <input type="text" name="home_cta_title" value={settings.home_cta_title || ''} onChange={handleInputChange} className="input-field" placeholder="Ingin Pesan Custom?" />
+              <input
+                type="text"
+                name="home_cta_title"
+                value={settings.home_cta_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Ingin Pesan Custom?"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section CTA - Subjudul</label>
-              <input type="text" name="home_cta_subtitle" value={settings.home_cta_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Almidad." />
+              <input
+                type="text"
+                name="home_cta_subtitle"
+                value={settings.home_cta_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Konsultasikan kebutuhan Custom Islamic Art & Meaningful Gifts Anda dengan tim Studio Al - Midad."
+              />
             </div>
           </div>
         </div>
@@ -478,27 +613,169 @@ const Settings = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Judul</label>
-              <input type="text" name="about_hero_title" value={settings.about_hero_title || ''} onChange={handleInputChange} className="input-field" placeholder="Tentang Studio Almidad" />
+              <input
+                type="text"
+                name="about_hero_title"
+                value={settings.about_hero_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Tentang Studio Al - Midad"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Subjudul</label>
-              <input type="text" name="about_hero_subtitle" value={settings.about_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel..." />
+              <input
+                type="text"
+                name="about_hero_subtitle"
+                value={settings.about_hero_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Custom Islamic Art & Meaningful Gifts. Suvenir • Artwork • Apparel..."
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Nilai-Nilai - Judul</label>
-              <input type="text" name="about_values_title" value={settings.about_values_title || ''} onChange={handleInputChange} className="input-field" placeholder="Nilai-Nilai Kami" />
+              <input
+                type="text"
+                name="about_values_title"
+                value={settings.about_values_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Nilai-Nilai Kami"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Nilai-Nilai - Subjudul</label>
-              <input type="text" name="about_values_subtitle" value={settings.about_values_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Nilai-nilai fundamental yang menjadi fondasi..." />
+              <input
+                type="text"
+                name="about_values_subtitle"
+                value={settings.about_values_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Nilai-nilai fundamental yang menjadi fondasi..."
+              />
+            </div>
+
+            <div className="md:col-span-2 border-t pt-4 mt-2">
+              <p className="text-sm text-gray-600 mb-2">
+                Atur judul dan deskripsi untuk 4 nilai utama (value cards) di halaman Tentang Kami.
+                Kosongkan untuk menggunakan teks default.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 1 - Judul</label>
+              <input
+                type="text"
+                name="about_value1_title"
+                value={settings.about_value1_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Kualitas Terjamin"
+              />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 1 - Deskripsi</label>
+              <input
+                type="text"
+                name="about_value1_description"
+                value={settings.about_value1_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Setiap karya dibuat dengan detail dan kualitas terbaik, sesuai standar tinggi seni Islami."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 2 - Judul</label>
+              <input
+                type="text"
+                name="about_value2_title"
+                value={settings.about_value2_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Custom Sesuai Kebutuhan"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 2 - Deskripsi</label>
+              <input
+                type="text"
+                name="about_value2_description"
+                value={settings.about_value2_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Desain disesuaikan dengan kebutuhan dan momen istimewa Anda."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 3 - Judul</label>
+              <input
+                type="text"
+                name="about_value3_title"
+                value={settings.about_value3_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Kreativitas & Makna"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 3 - Deskripsi</label>
+              <input
+                type="text"
+                name="about_value3_description"
+                value={settings.about_value3_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Kombinasi kreativitas dengan nilai-nilai Islami yang bermakna dalam setiap karya."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 4 - Judul</label>
+              <input
+                type="text"
+                name="about_value4_title"
+                value={settings.about_value4_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Integritas"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Value 4 - Deskripsi</label>
+              <input
+                type="text"
+                name="about_value4_description"
+                value={settings.about_value4_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Menjalankan bisnis dengan integritas, transparansi, dan komitmen penuh pada kepuasan pelanggan."
+              />
+            </div>
+
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Cerita Kami - Judul</label>
-              <input type="text" name="about_history_title" value={settings.about_history_title || ''} onChange={handleInputChange} className="input-field" placeholder="Cerita Kami" />
+              <input
+                type="text"
+                name="about_history_title"
+                value={settings.about_history_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Cerita Kami"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Judul Card Cerita Kami (di dalam card)</label>
-              <input type="text" name="about_history_card_title" value={settings.about_history_card_title || ''} onChange={handleInputChange} className="input-field" placeholder="Studio Almidad" />
+              <input
+                type="text"
+                name="about_history_card_title"
+                value={settings.about_history_card_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Studio Al - Midad"
+              />
             </div>
           </div>
         </div>
@@ -509,11 +786,55 @@ const Settings = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Judul Halaman</label>
-              <input type="text" name="services_hero_title" value={settings.services_hero_title || ''} onChange={handleInputChange} className="input-field" placeholder="Katalog Produk" />
+              <input
+                type="text"
+                name="services_hero_title"
+                value={settings.services_hero_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Katalog Produk"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Subjudul Halaman</label>
-              <input type="text" name="services_hero_subtitle" value={settings.services_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas." />
+              <input
+                type="text"
+                name="services_hero_subtitle"
+                value={settings.services_hero_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Suvenir • Artwork • Apparel. Temukan produk Custom Islamic Art & Meaningful Gifts berkualitas."
+              />
+            </div>
+
+            <div className="md:col-span-2 border-t pt-4 mt-2">
+              <p className="text-sm text-gray-600 mb-2">
+                Atur teks CTA di halaman detail produk (bagian &quot;Tertarik dengan produk ini?&quot;).
+                Kosongkan untuk menggunakan teks default.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Detail Produk - Judul CTA</label>
+              <input
+                type="text"
+                name="product_detail_cta_title"
+                value={settings.product_detail_cta_title || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Tertarik dengan produk ini?"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Detail Produk - Deskripsi CTA</label>
+              <input
+                type="text"
+                name="product_detail_cta_subtitle"
+                value={settings.product_detail_cta_subtitle || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Hubungi tim Studio Al - Midad untuk informasi lebih lanjut atau pesanan custom sesuai kebutuhan Anda."
+              />
             </div>
           </div>
         </div>
@@ -528,7 +849,7 @@ const Settings = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Subjudul (atas halaman)</label>
-              <input type="text" name="contact_hero_subtitle" value={settings.contact_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Tim Studio Almidad siap membantu..." />
+              <input type="text" name="contact_hero_subtitle" value={settings.contact_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Tim Studio Al - Midad siap membantu..." />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi (Temukan Kami) - Judul</label>

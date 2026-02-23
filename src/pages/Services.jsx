@@ -121,8 +121,8 @@ const Services = () => {
   return (
     <>
       <SEO
-        title="Katalog Produk - Studio Almidad"
-        description="Katalog lengkap produk Studio Almidad: Suvenir, Artwork, dan Apparel Islami dengan desain custom berkualitas."
+        title="Katalog Produk - Studio Al - Midad"
+        description="Katalog lengkap produk Studio Al - Midad: Suvenir, Artwork, dan Apparel Islami dengan desain custom berkualitas."
       />
 
       <div className="min-h-screen bg-gray-50 py-12">
