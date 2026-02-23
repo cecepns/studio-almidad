@@ -32,6 +32,8 @@ const Contact = () => {
     google_maps_embed: '',
     contact_location_title: '',
     contact_location_description: '',
+    contact_hero_title: '',
+    contact_hero_subtitle: '',
     instagram_username: '',
     instagram_url: '',
   });
@@ -59,6 +61,8 @@ const Contact = () => {
         contact_location_title: settingsData.contact_location_title || '',
         contact_location_description:
           settingsData.contact_location_description || '',
+        contact_hero_title: settingsData.contact_hero_title || '',
+        contact_hero_subtitle: settingsData.contact_hero_subtitle || '',
         instagram_username: settingsData.instagram_username || '',
         instagram_url: settingsData.instagram_url || '',
       });
@@ -145,15 +149,19 @@ const Contact = () => {
               className="text-2xl lg:text-6xl font-bold mb-6"
               data-aos="fade-up"
             >
-              Hubungi <span className="text-primary-400">Kami</span>
+              {settings.contact_hero_title || (
+                <>
+                  Hubungi <span className="text-primary-400">Kami</span>
+                </>
+              )}
             </h1>
             <p
               className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Tim Studio Almidad siap membantu Anda memenuhi kebutuhan Custom
-              Islamic Art & Meaningful Gifts.
+              {settings.contact_hero_subtitle ||
+                'Tim Studio Almidad siap membantu Anda memenuhi kebutuhan Custom Islamic Art & Meaningful Gifts.'}
             </p>
           </div>
         </div>

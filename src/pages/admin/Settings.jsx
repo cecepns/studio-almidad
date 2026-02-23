@@ -36,6 +36,8 @@ const Settings = () => {
     services_hero_subtitle: '',
     contact_location_title: '',
     contact_location_description: '',
+    contact_hero_title: '',
+    contact_hero_subtitle: '',
     company_warehouse_address: '',
     instagram_username: '',
     instagram_url: ''
@@ -521,8 +523,16 @@ const Settings = () => {
           <h3 className="text-base font-medium text-gray-800 border-b pb-2">Halaman Kontak</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi (Find Us) - Judul</label>
-              <input type="text" name="contact_location_title" value={settings.contact_location_title || ''} onChange={handleInputChange} className="input-field" placeholder="Find Us" />
+              <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Judul (atas halaman)</label>
+              <input type="text" name="contact_hero_title" value={settings.contact_hero_title || ''} onChange={handleInputChange} className="input-field" placeholder="Hubungi Kami (kosongkan = default: Hubungi Kami)" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Hero - Subjudul (atas halaman)</label>
+              <input type="text" name="contact_hero_subtitle" value={settings.contact_hero_subtitle || ''} onChange={handleInputChange} className="input-field" placeholder="Tim Studio Almidad siap membantu..." />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi (Temukan Kami) - Judul</label>
+              <input type="text" name="contact_location_title" value={settings.contact_location_title || ''} onChange={handleInputChange} className="input-field" placeholder="Temukan Kami" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Section Lokasi - Deskripsi</label>
