@@ -12,6 +12,9 @@ import {
   Camera,
   ShoppingBag,
   Box,
+  Coffee,
+  Frame,
+  HardDrive,
 } from "lucide-react";
 import { bannersAPI, productsAPI, settingsAPI, getImageUrl } from "../utils/api";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -63,9 +66,31 @@ const Home = () => {
   }, []);
 
   const defaultCategories = [
-    { icon: Gift, label: "Suvenir", description: "Hadiah bermakna untuk setiap momen istimewa" },
-    { icon: Palette, label: "Artwork", description: "Karya seni Islami dengan desain eksklusif" },
-    { icon: Shirt, label: "Apparel", description: "Pakaian & aksesoris dengan nilai estetika" },
+    {
+      icon: Shirt,
+      label: "👕 Apparel Collection",
+      description: "Koleksi apparel & fashion Islami pilihan untuk berbagai momen.",
+    },
+    {
+      icon: Coffee,
+      label: "☕ Drinkware Series",
+      description: "Gelas, tumbler, dan perlengkapan minum bertema Islami.",
+    },
+    {
+      icon: Frame,
+      label: "🖼 Wall Art & Frame",
+      description: "Wall art dan frame seni Islami untuk mempercantik ruangan.",
+    },
+    {
+      icon: Gift,
+      label: "🎁 Souvenir & Merchandise",
+      description: "Souvenir dan merchandise untuk acara pribadi maupun korporat.",
+    },
+    {
+      icon: HardDrive,
+      label: "💾 Digital Collection",
+      description: "Koleksi produk digital seperti file desain dan template.",
+    },
   ];
 
   const iconMap = {
@@ -77,6 +102,9 @@ const Home = () => {
     Camera,
     ShoppingBag,
     Box,
+    Coffee,
+    Frame,
+    HardDrive,
   };
 
   const resolveIcon = (iconName, fallbackIcon) => {
@@ -101,22 +129,17 @@ const Home = () => {
       label: settings.home_category3_label || defaultCategories[2].label,
       description: settings.home_category3_description || defaultCategories[2].description,
     },
+    {
+      icon: resolveIcon(settings.home_category4_icon, defaultCategories[3].icon),
+      label: settings.home_category4_label || defaultCategories[3].label,
+      description: settings.home_category4_description || defaultCategories[3].description,
+    },
+    {
+      icon: resolveIcon(settings.home_category5_icon, defaultCategories[4].icon),
+      label: settings.home_category5_label || defaultCategories[4].label,
+      description: settings.home_category5_description || defaultCategories[4].description,
+    },
   ];
-
-  const hasExtraCategory =
-    settings.home_category4_label ||
-    settings.home_category4_description ||
-    settings.home_category4_icon;
-
-  if (hasExtraCategory) {
-    categories.push({
-      icon: resolveIcon(settings.home_category4_icon, Star),
-      label: settings.home_category4_label || "Kategori Tambahan",
-      description:
-        settings.home_category4_description ||
-        "Kategori tambahan untuk kebutuhan khusus Anda.",
-    });
-  }
 
   const homeAboutTitle = settings.home_about_title || "Studio Al - Midad";
   const homeAboutDescription =

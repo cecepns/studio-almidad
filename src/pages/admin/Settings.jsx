@@ -14,6 +14,9 @@ const HOME_CATEGORY_ICON_OPTIONS = [
   { value: 'Camera', label: 'Camera (ikon kamera)' },
   { value: 'ShoppingBag', label: 'ShoppingBag (ikon tas belanja)' },
   { value: 'Box', label: 'Box (ikon box/kotak)' },
+  { value: 'Coffee', label: 'Coffee (ikon cangkir kopi)' },
+  { value: 'Frame', label: 'Frame (ikon frame / bingkai)' },
+  { value: 'HardDrive', label: 'HardDrive (ikon media digital)' },
 ];
 
 const Settings = () => {
@@ -47,6 +50,9 @@ const Settings = () => {
     home_category4_label: '',
     home_category4_description: '',
     home_category4_icon: '',
+    home_category5_label: '',
+    home_category5_description: '',
+    home_category5_icon: '',
     home_products_title: '',
     home_products_subtitle: '',
     home_cta_title: '',
@@ -505,8 +511,8 @@ const Settings = () => {
 
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <p className="text-sm text-gray-600 mb-2">
-                Atur teks dan icon untuk 3 kategori utama di section &quot;Apa yang Kami Tawarkan&quot; di halaman beranda.
-                Kosongkan untuk menggunakan teks dan icon default (Suvenir, Artwork, Apparel).
+                Atur teks dan icon untuk hingga 5 kategori utama di section &quot;Apa yang Kami Tawarkan&quot; di halaman beranda.
+                Kosongkan untuk menggunakan teks dan icon default (Apparel Collection, Drinkware Series, Wall Art & Frame, Souvenir & Merchandise, Digital Collection).
               </p>
             </div>
 
@@ -630,12 +636,7 @@ const Settings = () => {
               </select>
             </div>
 
-            {/* Kategori 4 (opsional) */}
-            <div className="md:col-span-2 border-t pt-4 mt-2">
-              <p className="text-sm text-gray-600 mb-2">
-                Kategori 4 bersifat opsional. Isi jika Anda ingin menambahkan satu poin tambahan di section kategori.
-              </p>
-            </div>
+            {/* Kategori 4 */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 4 - Nama</label>
               <input
@@ -644,7 +645,7 @@ const Settings = () => {
                 value={settings.home_category4_label || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Kategori Tambahan"
+                placeholder="🎁 Souvenir & Merchandise"
               />
             </div>
             <div>
@@ -655,7 +656,7 @@ const Settings = () => {
                 value={settings.home_category4_description || ''}
                 onChange={handleInputChange}
                 className="input-field"
-                placeholder="Deskripsi kategori tambahan Anda"
+                placeholder="Souvenir dan merchandise untuk acara pribadi maupun korporat."
               />
             </div>
             <div>
@@ -666,7 +667,47 @@ const Settings = () => {
                 onChange={handleInputChange}
                 className="input-field"
               >
-                <option value="">Default (Star)</option>
+                <option value="">Default (🎁 Souvenir & Merchandise)</option>
+                {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Kategori 5 */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 5 - Nama</label>
+              <input
+                type="text"
+                name="home_category5_label"
+                value={settings.home_category5_label || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="💾 Digital Collection"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 5 - Deskripsi</label>
+              <input
+                type="text"
+                name="home_category5_description"
+                value={settings.home_category5_description || ''}
+                onChange={handleInputChange}
+                className="input-field"
+                placeholder="Koleksi produk digital seperti file desain dan template."
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori 5 - Icon</label>
+              <select
+                name="home_category5_icon"
+                value={settings.home_category5_icon || ''}
+                onChange={handleInputChange}
+                className="input-field"
+              >
+                <option value="">Default (💾 Digital Collection)</option>
                 {HOME_CATEGORY_ICON_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
                     {opt.label}
